@@ -1,7 +1,9 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import Link from 'next/link'
 import indexStyles from '../styles/Index.module.css'
 import szrenica from '../public/images/szrenica1.jpg'
+import navStyles from '../styles/navbar.module.css'
 
 export default function Home() {
   return (
@@ -14,20 +16,28 @@ export default function Home() {
       <div className={indexStyles.sectionsWrapper}>
         <section>
           <div className={indexStyles.header}>
-              ART LANDING PAGE
+              Art Landing Page
           </div>
-          <div>
-              <span>Start</span>
-              <span>Galeria</span>
-              <span>Kontakt</span>
-              <span>O mnie</span>
+          <div className={indexStyles.navigationWrapper}>
+              <span className={navStyles.navButton}>Start</span>
+              <span className={navStyles.navButton}>Galeria</span>
+              <span className={navStyles.navButton}>Kontakt</span>
+              <span className={navStyles.navButton}>O mnie</span>
           </div>
-          <Image 
-            src={szrenica}
-            alt="Szrenica"
-            ></Image>
+          <div className={indexStyles.sectionOneImageOuterContainer}>
+            <div className={indexStyles.sectionOneImageContainer}>
+              <Image 
+                src={szrenica}
+                alt="Szrenica"
+                layout="responsive"
+                ></Image>
+            </div>
+          </div>
+          <div className={indexStyles.arrowDownWrapper}>
+            <Link href="#section-two"><div className={indexStyles.arrowDown}><a></a></div></Link>
+          </div>
         </section>
-        <section>
+        <section id="section-two">
           <div className={indexStyles.sectionTwoTop}>
             Section two
           </div>
