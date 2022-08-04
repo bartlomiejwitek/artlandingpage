@@ -4,6 +4,7 @@ import Link from 'next/link'
 import indexStyles from '../styles/Index.module.css'
 import szrenica from '../public/images/szrenica1.jpg'
 import navStyles from '../styles/navbar.module.css'
+import kotly from '../public/images/kotly.jpg';
 
 export default function Home() {
   return (
@@ -31,6 +32,10 @@ export default function Home() {
                 alt="Szrenica"
                 layout="responsive"
                 ></Image>
+              <div className={indexStyles.sectionOneLabel}>
+                Szrenica
+                <div>Olej na płótnie</div>
+              </div>
             </div>
           </div>
           <div className={indexStyles.arrowDownWrapper}>
@@ -39,22 +44,24 @@ export default function Home() {
         </section>
         <section id="section-two">
           <div className={indexStyles.sectionTwoTop}>
-            Section two
+            <div className={indexStyles.sectionTwoImageOuterContainer}>
+              <div>
+                <Image 
+                  src={kotly}
+                  alt="Ktoły"
+                  layout="responsive"
+                  ></Image>
+              </div>
+            </div>
           </div>
           <div className={indexStyles.sectionTwoBottom}>
-          hello2
           </div>
         </section>
         <section>
           SECTION THREE
+          <div>stopka</div>
         </section>
       </div>
-
-
-
-      {/* <footer>
-        stopka
-      </footer> */}
     </div>
   )
 }
