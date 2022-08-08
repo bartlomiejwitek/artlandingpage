@@ -5,6 +5,7 @@ import indexStyles from '../styles/Index.module.css'
 import szrenica from '../public/images/szrenica1.jpg'
 import navStyles from '../styles/navbar.module.css'
 import kotly from '../public/images/kotly.jpg';
+import pies from '../public/images/pies.jpg';
 
 export default function Home() {
   return (
@@ -53,11 +54,25 @@ export default function Home() {
                   ></Image>
               </div>
             </div>
+            <div className={indexStyles.sectionTwoTopLabel}>
+                Kotły
+                <div>Pejzaż przedstawiający widok na szczyt Śnieżne Kotły </div>
+            </div>
           </div>
           <div className={indexStyles.sectionTwoBottom}>
+            <div className={indexStyles.sectionTwoImageTwoOuterContainer}>
+              <div>
+                <Image 
+                  src={pies}
+                  alt="Pies na tle grór"
+                  layout="responsive"
+                  ></Image>
+              </div>
+            </div>
           </div>
+
         </section>
-        <section>
+        <section id="section-three">
           SECTION THREE
           <div>stopka</div>
         </section>
