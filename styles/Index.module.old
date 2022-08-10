@@ -3,7 +3,6 @@
     height: 100vh;
     margin: 0;
     background-color: aqua;
-    position: relative;
 }
 
 .sectionsWrapper {
@@ -14,7 +13,6 @@
     scroll-behavior: smooth;
     overflow-y: scroll;
     overflow-x: hidden;
-    position: relative;
 }
 
 .sectionsWrapper section {
@@ -23,7 +21,6 @@
     width: 100vw;
     height: 100vh;
     scroll-snap-align: start;
-    position: relative;
 }
 
 .sectionsWrapper section:nth-of-type(1){
@@ -73,12 +70,13 @@
 /* navigation */
 
 .navigationWrapper { 
+    position: relative;
     color: white;
     font-size: x-large;
     font-family: Georgia, serif;
     font-weight: 500;
     width: 100%;
-    height: 3.1em;
+    height: 3.5em;
     /* background-color: aquamarine; */
     display: flex;
     justify-content: center;
@@ -89,9 +87,6 @@
     margin-top: 17rem;
     display: flex;
     justify-content: center;
-    width: 100%;
-    position: absolute;
-    bottom: 25px;
 }
 
 .arrowDown {
@@ -124,17 +119,16 @@
     display: flex;
     justify-content: center;
     width: 100%;
-    margin-top: 1vh;
+    margin-top: 4em;
 }
 .sectionOneImageContainer {
-    width: 50vh;
-    min-width: 20em;
-    /* height: 32vh; */
+    /* width: 30em;
+    height: 32vh; */
 }
 
 .sectionTwoImageOuterContainer{
     width: 40em;
-    /* position: relative; */
+    position: relative;
     left: 10em;
     top: 5em;
     z-index: 3;
@@ -142,14 +136,14 @@
 
 .sectionTwoImageTwoOuterContainer {
     width: 45em;
-    /* position: relative; */
+    position: relative;
     left: 65em;
     bottom: 10em;
 }
 
 /* labels */
 .sectionOneLabel {
-    /* position: relative; */
+    position: relative;
     bottom: 5rem;
     right: 12rem;
     color: white;
@@ -164,7 +158,7 @@
 }
 
 .sectionTwoTopLabel {
-    /* position: relative; */
+    position: relative;
     left: 18em;
     bottom: 8em;
     font-size: 3rem;
@@ -198,46 +192,6 @@
 
     .sectionOneLabel > div {
         font-size: 0.75rem;
-    }
-
-    .sectionsWrapper{
-        overflow-y: unset;
-        overflow-x: clip;
-    }
-
-    .sectionsWrapper section {
-        min-height: 55em;
-    }
-
-    .arrowDownWrapper{
-        display: none;
-    }
-
-    .sectionTwoTop {
-        width: 100%;
-    }
-
-    .sectionTwoBottom { 
-        width: 100%;
-    }
-
-    .sectionTwoImageOuterContainer{
-        width: 100%;
-        /* position: relative; */
-        left: 10em;
-        top: 5em;
-        z-index: 1;
-    }
-
-    .sectionTwoImageTwoOuterContainer {
-        width: 100%;
-    }
-
-}
-
-@media(max-height: 52rem){
-    .header {
-        font-size: 5rem;
     }
 }
 
