@@ -1,11 +1,11 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import Link from 'next/link'
-import indexStyles from '../styles/Index.module.css'
-import szrenica from '../public/images/szrenica1.jpg'
-import navStyles from '../styles/navbar.module.css'
-import kotly from '../public/images/kotly.jpg';
-import pies from '../public/images/pies.jpg';
+import Head from "next/head";
+import Image from "next/image";
+import Link from "next/link";
+import indexStyles from "../styles/Index.module.css";
+import szrenica from "../public/images/szrenica1.jpg";
+import navStyles from "../styles/navbar.module.css";
+import kotly from "../public/images/kotly.jpg";
+import pies from "../public/images/pies.jpg";
 
 export default function Home() {
   return (
@@ -17,22 +17,16 @@ export default function Home() {
       </Head>
       <div className={indexStyles.sectionsWrapper}>
         <section>
-          <div className={indexStyles.header}>
-              Art Landing Page
-          </div>
+          <div className={indexStyles.header}>Art Landing Page</div>
           <div className={indexStyles.navigationWrapper}>
-              <span className={navStyles.navButton}>Start</span>
-              <span className={navStyles.navButton}>Galeria</span>
-              <span className={navStyles.navButton}>Kontakt</span>
-              <span className={navStyles.navButton}>O mnie</span>
+            <span className={navStyles.navButton}>Start</span>
+            <span className={navStyles.navButton}>Galeria</span>
+            <span className={navStyles.navButton}>Kontakt</span>
+            <span className={navStyles.navButton}>O mnie</span>
           </div>
           <div className={indexStyles.sectionOneImageOuterContainer}>
             <div className={indexStyles.sectionOneImageContainer}>
-              <Image 
-                src={szrenica}
-                alt="Szrenica"
-                layout="responsive"
-                ></Image>
+              <Image src={szrenica} alt="Szrenica" layout="responsive"></Image>
               <div className={indexStyles.sectionOneLabel}>
                 Szrenica
                 <div>Olej na płótnie</div>
@@ -40,37 +34,40 @@ export default function Home() {
             </div>
           </div>
           <div className={indexStyles.arrowDownWrapper}>
-            <Link href="#section-two"><div className={indexStyles.arrowDown}><a></a></div></Link>
+            <Link href="#section-two">
+              <div className={indexStyles.arrowDown}>
+                <a></a>
+              </div>
+            </Link>
           </div>
         </section>
         <section id="section-two">
           <div className={indexStyles.sectionTwoTop}>
+            <div className={indexStyles.sectionTwoTopLabel}>Kotły</div>
             <div className={indexStyles.sectionTwoImageOuterContainer}>
               <div>
-                <Image 
-                  src={kotly}
-                  alt="Ktoły"
-                  layout="responsive"
-                  ></Image>
+                <Image src={kotly} alt="Ktoły" layout="fill"></Image>
               </div>
-            </div>
-            <div className={indexStyles.sectionTwoTopLabel}>
-                Kotły
-                <div>Pejzaż przedstawiający widok na szczyt Śnieżne Kotły </div>
             </div>
           </div>
           <div className={indexStyles.sectionTwoBottom}>
             <div className={indexStyles.sectionTwoImageTwoOuterContainer}>
               <div>
-                <Image 
+                <Image
                   src={pies}
                   alt="Pies na tle grór"
                   layout="responsive"
-                  ></Image>
+                ></Image>
               </div>
             </div>
           </div>
-
+          {/* <div className={indexStyles.sectionTwoArrowDownWrapper}>
+            <Link href="#section-three">
+              <div className={indexStyles.arrowDown}>
+                <a></a>
+              </div>
+            </Link>
+          </div> */}
         </section>
         <section id="section-three">
           SECTION THREE
@@ -78,5 +75,5 @@ export default function Home() {
         </section>
       </div>
     </div>
-  )
+  );
 }
