@@ -1,10 +1,22 @@
-.navButton{
-    border-bottom: 1px solid white;
-    margin: 1rem;
-    padding: 0.5rem;
+.navList {
+  list-style-type: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  height: 100%;
 }
 
-.navButton:hover{
-    border-bottom: 2.5px solid white;
-    cursor: pointer;
+.navButton {
+  border-bottom: 1px solid white;
+  margin: 1rem;
+  padding: 0.5rem;
+  text-align: center;
+  transition: 0.3s;
+  border-radius: 10% 10% 0 0;
+}
+
+.navButton:hover {
+  border-bottom: 2.5px solid white;
+  cursor: pointer;
+  background-color: var(--color-primary-action-accent);
 }

@@ -18,4 +18,5 @@ html {
 /* Declaring global variables */
 :root {
   --color-primary: #252525;
+  --color-primary-action-accent: #3a3a3a;
 }

@@ -18,12 +18,14 @@ export default function Home() {
       <div className={indexStyles.sectionsWrapper}>
         <section>
           <div className={indexStyles.header}>Art Landing Page</div>
-          <div className={indexStyles.navigationWrapper}>
-            <span className={navStyles.navButton}>Start</span>
-            <span className={navStyles.navButton}>Galeria</span>
-            <span className={navStyles.navButton}>Kontakt</span>
-            <span className={navStyles.navButton}>O mnie</span>
-          </div>
+          <nav className={indexStyles.navigationWrapper}>
+            <ul className={navStyles.navList}>
+              <li className={navStyles.navButton}>Start</li>
+              <li className={navStyles.navButton}>Galeria</li>
+              <li className={navStyles.navButton}>Kontakt</li>
+              <li className={navStyles.navButton}>O mnie</li>
+            </ul>
+          </nav>
           <div className={indexStyles.sectionOneImageOuterContainer}>
             <div className={indexStyles.sectionOneImageContainer}>
               <Image src={szrenica} alt="Szrenica" layout="responsive"></Image>

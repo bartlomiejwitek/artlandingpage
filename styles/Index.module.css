@@ -2,14 +2,14 @@
   width: 100vw;
   height: 100vh;
   margin: 0;
-  background-color: aqua;
+  /* background-color: aqua; */
   position: relative;
 }
 
 .sectionsWrapper {
   width: 100%;
   height: 100%;
-  background-color: green;
+  /* background-color: green; */
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
   overflow-y: scroll;
