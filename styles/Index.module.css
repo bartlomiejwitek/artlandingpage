@@ -58,8 +58,10 @@
 .sectionsWrapper section:nth-of-type(3) {
   background-color: #ffffff;
 }
-
 .header {
+  height: auto;
+}
+.header > h1 {
   height: fit-content;
   width: 100%;
   display: flex;
@@ -70,20 +72,6 @@
   font-family: Georgia, serif;
   -webkit-text-fill-color: transparent;
   -webkit-text-stroke: 1.2px white;
-}
-
-/* navigation */
-
-.navigationWrapper {
-  color: white;
-  font-size: x-large;
-  font-family: Georgia, serif;
-  font-weight: 500;
-  width: 100%;
-  height: 3.1em;
-  /* background-color: aquamarine; */
-  display: flex;
-  justify-content: center;
 }
 
 .arrowDownWrapper {
@@ -193,6 +181,9 @@
 
 @media (max-width: 850px) {
   .header {
+    height: 11rem;
+  }
+  .header > h1 {
     font-size: 10vw;
   }
   .sectionsWrapper section {

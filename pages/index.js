@@ -17,11 +17,28 @@ export default function Home() {
       </Head>
       <div className={indexStyles.sectionsWrapper}>
         <section>
-          <header>
-            <h1 className={indexStyles.header}>Art Landing Page</h1>
+          <header className={indexStyles.header}>
+            <h1>Art Landing Page</h1>
           </header>
-          <nav className={indexStyles.navigationWrapper}>
-            <ul className={navStyles.navList}>
+          <a
+            href="#main-menu"
+            className={navStyles.menuToggle}
+            id="main-menu-toggle"
+          >
+            <span>
+              <Image
+                src="/bars-solid.svg"
+                height={30}
+                width={30}
+                className={navStyles.barsIcon}
+              />
+            </span>
+          </a>
+          <nav className={navStyles.navigationWrapper} id="main-menu">
+            <a href="#main-menu-toggle" className={navStyles.menuClose}>
+              X
+            </a>
+            <ul>
               <li className={navStyles.navButton}>Start</li>
               <li className={navStyles.navButton}>Galeria</li>
               <li className={navStyles.navButton}>Kontakt</li>
