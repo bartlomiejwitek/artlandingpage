@@ -17,7 +17,9 @@ export default function Home() {
       </Head>
       <div className={indexStyles.sectionsWrapper}>
         <section>
-          <div className={indexStyles.header}>Art Landing Page</div>
+          <header>
+            <h1 className={indexStyles.header}>Art Landing Page</h1>
+          </header>
           <nav className={indexStyles.navigationWrapper}>
             <ul className={navStyles.navList}>
               <li className={navStyles.navButton}>Start</li>
@@ -26,55 +28,14 @@ export default function Home() {
               <li className={navStyles.navButton}>O mnie</li>
             </ul>
           </nav>
-          <div className={indexStyles.sectionOneImageOuterContainer}>
-            <div className={indexStyles.sectionOneImageContainer}>
-              <Image src={szrenica} alt="Szrenica" layout="responsive"></Image>
-              <div className={indexStyles.sectionOneLabel}>
-                Szrenica
-                <div>Olej na płótnie</div>
-              </div>
+          <div className={indexStyles.sectionOneImageContainer}>
+            <div>
+              <Image src={szrenica} alt="Szrenica" layout="fill"></Image>
             </div>
           </div>
-          <div className={indexStyles.arrowDownWrapper}>
-            <Link href="#section-two">
-              <div className={indexStyles.arrowDown}>
-                <a></a>
-              </div>
-            </Link>
-          </div>
         </section>
-        <section id="section-two">
-          <div className={indexStyles.sectionTwoTop}>
-            <div className={indexStyles.sectionTwoTopLabel}>Kotły</div>
-            <div className={indexStyles.sectionTwoImageOuterContainer}>
-              <div>
-                <Image src={kotly} alt="Ktoły" layout="fill"></Image>
-              </div>
-            </div>
-          </div>
-          <div className={indexStyles.sectionTwoBottom}>
-            <div className={indexStyles.sectionTwoImageTwoOuterContainer}>
-              <div>
-                <Image
-                  src={pies}
-                  alt="Pies na tle grór"
-                  layout="responsive"
-                ></Image>
-              </div>
-            </div>
-          </div>
-          {/* <div className={indexStyles.sectionTwoArrowDownWrapper}>
-            <Link href="#section-three">
-              <div className={indexStyles.arrowDown}>
-                <a></a>
-              </div>
-            </Link>
-          </div> */}
-        </section>
-        <section id="section-three">
-          SECTION THREE
-          <div>stopka</div>
-        </section>
+        <section id="section-two"></section>
+        <section id="section-three"></section>
       </div>
     </div>
   );

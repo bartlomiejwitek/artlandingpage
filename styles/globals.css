@@ -19,4 +19,6 @@ html {
 :root {
   --color-primary: #252525;
   --color-primary-action-accent: #3a3a3a;
+  --image-height-multiplier-horizontal: 0.8;
+  --image-height-multiplier-vertical: 1.25;
 }

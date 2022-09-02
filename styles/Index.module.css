@@ -2,14 +2,12 @@
   width: 100vw;
   height: 100vh;
   margin: 0;
-  /* background-color: aqua; */
   position: relative;
 }
 
 .sectionsWrapper {
   width: 100%;
   height: 100%;
-  /* background-color: green; */
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
   overflow-y: scroll;
@@ -20,7 +18,7 @@
 .sectionsWrapper section {
   display: flex;
   justify-content: center;
-  width: 100vw;
+  /* width: 100vw; */
   height: 100vh;
   scroll-snap-align: start;
   position: relative;
@@ -62,12 +60,11 @@
 }
 
 .header {
-  /* background-color: pink; */
   height: fit-content;
   width: 100%;
   display: flex;
   justify-content: center;
-  font-size: 7rem;
+  font-size: 5.5rem;
   margin-top: 4rem;
   color: white;
   font-family: Georgia, serif;
@@ -125,23 +122,22 @@
 
 /* images */
 
-.sectionOneImageOuterContainer {
+.sectionOneImageContainer {
   display: flex;
   justify-content: center;
   width: 100%;
-  margin-top: 1vh;
 }
-.sectionOneImageContainer {
-  width: 50vh;
-  min-width: 20em;
-  /* height: 32vh; */
+
+.sectionOneImageContainer > div {
+  width: 70vw;
+  max-width: 600px;
+  height: 60vh;
+  position: relative; /* parten of image must be relative for size to work*/
 }
 
 .sectionTwoImageOuterContainer {
   width: 40em;
   position: relative;
-  /* left: 10em; */
-  /* top: 5em; */
   z-index: 3;
   margin-right: 5%;
   max-width: 40em;
@@ -195,54 +191,28 @@
 
 /* media queries */
 
-@media (max-width: 61em) {
+@media (max-width: 850px) {
   .header {
-    font-size: 5rem;
+    font-size: 10vw;
   }
-
-  .sectionOneLabel {
-    font-size: 2rem;
-    right: 8rem;
-    bottom: 3rem;
-  }
-
-  .sectionOneLabel > div {
-    font-size: 0.75rem;
-  }
-
-  .sectionsWrapper {
-    overflow-y: unset;
-    overflow-x: clip;
-  }
-
   .sectionsWrapper section {
-    min-height: 55em;
+    height: auto;
   }
 
-  .arrowDownWrapper {
-    display: none;
-  }
-
-  .sectionTwoImageOuterContainer {
+  .sectionOneImageContainer > div {
     width: 100%;
-    /* position: relative; */
-    left: 10em;
-    top: 5em;
-    z-index: 1;
-  }
-
-  .sectionTwoImageTwoOuterContainer {
-    width: 100%;
+    max-width: none;
+    height: calc(100vw * var(--image-height-multiplier-vertical));
   }
 }
 
-@media (max-height: 52rem) {
+/* @media (max-height: 52rem) {
   .header {
     font-size: 5rem;
   }
-}
+} */
 
-@media (max-width: 50em) {
+/* @media (max-width: 850px) {
   .header {
     font-size: 3.5rem;
   }
@@ -254,4 +224,4 @@
   .sectionOneLabel {
     display: none;
   }
-}
+} */
