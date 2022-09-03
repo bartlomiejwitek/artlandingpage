@@ -20,6 +20,8 @@ html {
   --color-primary: #252525;
   --color-primary-action-accent: #3a3a3a;
   --color-primary-action-accent-lighter: #4d4c4c;
+  --color-primary-background-light: #ffffff;
+  --color-primary-background-medium: #c8bcb4;
   --image-height-multiplier-horizontal: 0.8;
   --image-height-multiplier-vertical: 1.25;
 }
