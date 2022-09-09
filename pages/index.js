@@ -11,6 +11,19 @@ import pies from "../public/images/pies.jpg";
 import { useEffect, useState } from "react";
 
 export default function Home() {
+  const [windowSize, setWindowSize] = useState();
+  const handleResize = () => {
+    console.log(window.innerWidth + " " + window.innerHeight);
+    setWindowSize({ width: innerWidth, height: innerHeight });
+  };
+
+  useEffect(() => {
+    // console.log(window.screen.width);
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <div className={indexStyles.container}>
       <Head>
