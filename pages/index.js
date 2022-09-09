@@ -8,6 +8,7 @@ import szrenica from "../public/images/szrenica1.jpg";
 import navStyles from "../styles/navbar.module.css";
 import kotly from "../public/images/kotly.jpg";
 import pies from "../public/images/pies.jpg";
+import { useEffect, useState } from "react";
 
 export default function Home() {
   return (
@@ -54,13 +55,8 @@ export default function Home() {
           </a>
           <nav className={navStyles.navigationWrapper} id="main-menu">
             <a href="#" className={navStyles.menuClose}>
-              <span>
-                <Image
-                  src="/xmark-solid.svg"
-                  height={30}
-                  width={30}
-                  className={navStyles.xmarkIcon}
-                />
+              <span className={navStyles.xmarkIcon}>
+                <Image src="/xmark-solid.svg" height={30} width={30} />
               </span>
             </a>
             <ul>
