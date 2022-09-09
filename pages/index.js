@@ -79,6 +79,15 @@ export default function Home() {
               <li className={navStyles.navButton}>O mnie</li>
             </ul>
           </nav>
+          <div className={indexStyles.telephone}>
+            <Image
+              src="/phone-solid.svg"
+              height={15}
+              width={15}
+              className={indexStyles.telephoneIcon}
+            />
+            <span>32 123 44 55</span>
+          </div>
           <div className={indexStyles.sectionOneImageContainer}>
             <div>
               <Image src={szrenica} alt="Szrenica" layout="fill"></Image>
@@ -96,6 +105,10 @@ export default function Home() {
             libero. Duis est ligula, commodo a sem sit amet, pharetra pharetra
             ligula.
           </p>
+          <div className={indexStyles.sectionTitle}>
+            <p>1. Strona główna</p>
+            <div></div>
+          </div>
         </section>
         <section id="section-two">
           <p>
@@ -110,6 +123,10 @@ export default function Home() {
             <div className={indexS2Styles.backgroundText}>Pejzaże</div>
           </div>
           <div className={indexStyles.pageBreak}></div>
+          <div className={indexStyles.sectionTitle}>
+            <p>2. Pejzaże</p>
+            <div></div>
+          </div>
         </section>
         <section id="section-three">
           <div className={indexStyles.pageBreak}>

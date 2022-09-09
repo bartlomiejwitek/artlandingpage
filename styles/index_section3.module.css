@@ -11,7 +11,7 @@
   position: relative; /* parten of image must be relative for size to work*/
 }
 
-@media (max-width: 850px) {
+@media (max-width: 850px), (max-height: 720px) {
   .sectionThreeImageContainer > div {
     width: 100%;
     max-width: none;

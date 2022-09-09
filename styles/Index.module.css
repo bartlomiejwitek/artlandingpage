@@ -208,7 +208,7 @@
   position: relative !important;
   bottom: 0;
   color: white;
-  font-size: 12rem;
+  font-size: 20vh;
   width: 100%;
   height: 100%;
   display: flex;
@@ -237,9 +237,53 @@
   margin: 0;
 }
 
+.sectionTitle {
+  position: absolute;
+  top: 100px;
+  left: -70px;
+  transform: rotate(-90deg);
+}
+
+.sectionTitle > p {
+  font-size: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.sectionTitle > div {
+  height: 2px;
+  width: 250px;
+  background-color: #ffffff;
+}
+
+.telephone {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  font-size: 2vw;
+  display: flex;
+  align-items: center;
+}
+.telephone > span {
+  margin: 0;
+  margin-left: 10px;
+  padding: 0;
+}
+.telephoneIcon {
+  margin-right: 5px;
+  filter: invert(100%) sepia(100%) saturate(1%) hue-rotate(253deg)
+    brightness(102%) contrast(101%);
+}
+
 /* media queries */
 
-@media (max-width: 850px) {
+@media (max-width: 850px), (max-height: 720px) {
+  .sectionTitle {
+    display: none;
+  }
+  .testclass {
+    font-size: 12rem;
+  }
   .header {
     height: 11rem;
   }
@@ -259,6 +303,15 @@
     max-width: none;
     height: calc(100vw * var(--image-height-multiplier-vertical));
   }
+  .telephone {
+    font-size: 1.5rem;
+    width: 100vw;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    top: 120px;
+  }
 }
 
 @media (min-width: 1280px) {
@@ -267,5 +320,8 @@
     transition-property: font-size;
     transition: cubic-bezier(0.075, 0.82, 0.165, 1);
     transition-duration: 0.6s;
+  }
+  .telephone {
+    font-size: 1.5rem;
   }
 }
