@@ -287,7 +287,7 @@
   position: static;
   display: flex;
   justify-content: center;
-  margin: 5px;
+  margin-top: 5px;
   bottom: 0;
   cursor: pointer;
   background-color: rgba(1, 1, 1, 0);
@@ -344,6 +344,11 @@
   .sectionsWrapper section:nth-of-type(1) > p {
     margin: 30px; /* */
     text-align: justify;
+  }
+  .buttonDown {
+    display: none;
+    width: 0;
+    height: 0;
   }
 }
 
