@@ -10,3 +10,12 @@
   font-size: 44vw;
   color: white;
 }
+
+/* Overriding coloruring of the top left corner section title element for the second section*/
+.sectionTitle > div {
+  background-color: var(--color-primary);
+}
+
+.sectionTitle > p {
+  color: var(--color-primary);
+}
