@@ -25,16 +25,20 @@ export default function Home() {
     setCurrentScrollTop(event.srcElement.scrollTop);
   };
 
-  function debounce(func, timeout = 300) {
-    console.log("debounce called");
+  function debounce(func, timeout = 1000) {
     let timer;
     return (...args) => {
+      console.log("returning");
       clearTimeout(timer);
       timer = setTimeout(() => {
         func.apply(this, args);
       }, timeout);
     };
   }
+
+  const testFunction = () => {
+    console.log("inside debounce");
+  };
 
   /* Always having the current and one historical value */
   const pushScrollTop = (value) => {
@@ -47,6 +51,7 @@ export default function Home() {
   };
 
   const handleSectionUrlChange = () => {
+    console.log("Hanldesectionurl called!");
     console.log(
       `Curent: ${scrollTop.current}, Past: ${scrollTop.past},  Delta:  ${
         scrollTop.current - scrollTop.past
@@ -108,13 +113,7 @@ export default function Home() {
   }, [currentScrollTop]);
 
   useEffect(() => {
-    // console.log(
-    //   `Curent: ${scrollTop.current}, Past: ${scrollTop.past},  Delta:  ${
-    //     scrollTop.current - scrollTop.past
-    //   }`
-    // );
-    // handleSectionUrlChange();
-    debounce(() => handleSectionUrlChange());
+    debounce(() => handleSectionUrlChange())(); //This needs to be called because debounce itself returns a function! Does not invoke it!
   }, [scrollTop]);
 
   useEffect(() => {
