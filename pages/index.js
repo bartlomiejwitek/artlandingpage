@@ -9,12 +9,15 @@ import navStyles from "../styles/navbar.module.css";
 import kotly from "../public/images/kotly.jpg";
 import pies from "../public/images/pies.jpg";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
+import NavigationComponent from "../components/navigation-component";
 
 export default function Home() {
   const [windowSize, setWindowSize] = useState();
   const [currentScrollTop, setCurrentScrollTop] = useState();
   const [scrollTop, setScrollTop] = useState({ current: null, past: null });
   const SCROLL_SNAP_URL_MULTIPIERL = 0.15; /* To multiply this by the screen height */
+  const router = useRouter();
 
   const handleResize = () => {
     console.log(window.innerWidth + " " + window.innerHeight);
@@ -64,7 +67,8 @@ export default function Home() {
           windowSize.height - SCROLL_SNAP_URL_MULTIPIERL * windowSize.height &&
         scrollTop.current - scrollTop.past < 0
       ) {
-        window.history.pushState({}, "", window.location.origin);
+        // window.history.pushState({}, "", window.location.origin);
+        router.push("").catch((e) => console.log(e));
       } else if (
         /* Adding #section-two when scrolling from top to bottom section1 -> section2 */
         scrollTop.current >=
@@ -73,11 +77,16 @@ export default function Home() {
           windowSize.height * (1 + SCROLL_SNAP_URL_MULTIPIERL) &&
         scrollTop.current - scrollTop.past > 0
       ) {
-        window.history.pushState(
-          {},
-          "",
-          window.location.origin + "#section-two"
-        );
+        console.log("case 2 true");
+        // window.history.pushState(
+        //   {},
+        //   "",
+        //   window.location.origin + "#section-two"
+        // );
+        // router.push("#section-two");
+        if (router.asPath !== "/" + "#section-two") {
+          router.push("#section-two").catch((e) => console.log(e));
+        }
       } else if (
         /* Scrolling from section2 -> section3*/
         scrollTop.current >=
@@ -86,24 +95,26 @@ export default function Home() {
           windowSize.height * (1 + 1 + SCROLL_SNAP_URL_MULTIPIERL) &&
         scrollTop.current - scrollTop.past > 0
       ) {
-        window.history.pushState(
-          {},
-          "",
-          window.location.origin + "#section-three"
-        );
+        // window.history.pushState(
+        //   {},
+        //   "",
+        //   window.location.origin + "#section-three"
+        // );
+        router.push("#section-three").catch((e) => console.log(e));
       } else if (
         /* Scrolling section3 -> section2 */
-        scrollTop.current <=
+        scrollTop.current >=
           windowSize.height * (1 + 1 - SCROLL_SNAP_URL_MULTIPIERL) &&
-        scrollTop.current >
-          windowSize.height * (1 + SCROLL_SNAP_URL_MULTIPIERL) &&
+        scrollTop.current <
+          windowSize.height * (1 + 1 + SCROLL_SNAP_URL_MULTIPIERL) &&
         scrollTop.current - scrollTop.past < 0
       ) {
-        window.history.pushState(
-          {},
-          "",
-          window.location.origin + "#section-two"
-        );
+        // window.history.pushState(
+        //   {},
+        //   "",
+        //   window.location.origin + "#section-two"
+        // );
+        router.push("#section-two").catch((e) => console.log(e));
       }
     }
   };
@@ -165,45 +176,7 @@ export default function Home() {
       </Head>
       <div className={indexStyles.sectionsWrapper} id="sections-wrapper">
         <section>
-          <header className={indexStyles.header}>
-            <h1>Monika Krakowska Art</h1>
-            <div className={indexStyles.telephone}>
-              <Image
-                src="/phone-solid.svg"
-                height={15}
-                width={15}
-                className={indexStyles.telephoneIcon}
-              />
-              <span>32 123 44 55</span>
-            </div>
-          </header>
-          <a
-            href="#main-menu"
-            className={navStyles.menuToggle}
-            id="main-menu-toggle"
-          >
-            <span>
-              <Image
-                src="/bars-solid.svg"
-                height={30}
-                width={30}
-                className={navStyles.barsIcon}
-              />
-            </span>
-          </a>
-          <nav className={navStyles.navigationWrapper} id="main-menu">
-            <a href="#" className={navStyles.menuClose}>
-              <span className={navStyles.xmarkIcon}>
-                <Image src="/xmark-solid.svg" height={30} width={30} />
-              </span>
-            </a>
-            <ul>
-              <li className={navStyles.navButton}>Start</li>
-              <li className={navStyles.navButton}>Galeria</li>
-              <li className={navStyles.navButton}>Kontakt</li>
-              <li className={navStyles.navButton}>O mnie</li>
-            </ul>
-          </nav>
+          <NavigationComponent />
           <div className={indexStyles.sectionOneImageContainer}>
             <div>
               <Image src={szrenica} alt="Szrenica" layout="fill"></Image>
