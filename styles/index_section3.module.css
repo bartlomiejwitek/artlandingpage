@@ -1,0 +1,37 @@
+.sectionThreeImageContainer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.sectionThreeImageContainer > div {
+  width: 70vw;
+  max-width: 600px;
+  height: 60vh;
+  position: relative; /* parten of image must be relative for size to work*/
+}
+
+@media (max-width: 850px), (max-height: 720px) {
+  .sectionThreeImageContainer > div {
+    width: 100%;
+    max-width: none;
+    z-index: 4;
+    height: calc(100vw * var(--image-height-multiplier-horizontal));
+  }
+
+  .backgroundText {
+    position: absolute !important;
+    z-index: 1 !important; /* Important because the upper selector targets each div */
+    width: 100;
+    height: 100;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    font-family: "Aboreto";
+    /* bottom: -3rem; */
+    top: 4rem;
+    left: 20rem;
+    font-size: 35vw;
+    color: black;
+  }
+}

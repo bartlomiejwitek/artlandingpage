@@ -1,0 +1,21 @@
+.backgroundText {
+  position: absolute !important;
+  width: 100;
+  height: 100;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  /* bottom: -3rem; */
+  top: 6.5rem;
+  font-size: 44vw;
+  color: white;
+}
+
+/* Overriding coloruring of the top left corner section title element for the second section*/
+.sectionTitle > div {
+  background-color: var(--color-primary);
+}
+
+.sectionTitle > p {
+  color: var(--color-primary);
+}
