@@ -13,6 +13,7 @@
   justify-content: center;
   margin-bottom: 3vh;
   margin-top: -1.8vh;
+  color: white;
 }
 
 .navigationWrapper ul {
@@ -76,12 +77,52 @@
   text-align: center;
   transition: 0.3s;
   border-radius: 10% 10% 0 0;
+  font-family: "Alumni Sans Pinstripe", sans-serif;
 }
 
 .navButton:hover {
   border-bottom: 2.5px solid white;
   cursor: pointer;
   background-color: var(--color-primary-action-accent);
+}
+
+.header {
+  height: auto;
+}
+.header > h1 {
+  height: fit-content;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  font-size: 6.5vw;
+  margin-top: 0px;
+  margin-bottom: 1vh;
+  color: white;
+  font-family: "Bodoni Moda", serif;
+
+  /* font-family: Georgia, serif;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 1.2px white; */
+}
+
+.telephone {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  font-size: 2vw;
+  display: flex;
+  align-items: center;
+  color: white;
+}
+.telephone > span {
+  margin: 0;
+  margin-left: 10px;
+  padding: 0;
+}
+.telephoneIcon {
+  margin-right: 5px;
+  filter: invert(100%) sepia(100%) saturate(1%) hue-rotate(253deg)
+    brightness(102%) contrast(101%);
 }
 
 @media (max-width: 850px), (max-height: 720px) {
@@ -115,6 +156,18 @@
     border-bottom: none;
   }
 
+  .telephone {
+    font-size: 1.5rem;
+    width: 100vw;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    top: 120px;
+    position: static;
+    margin-bottom: 0.5rem;
+  }
+
   .navigationWrapper ul li:hover {
     border-bottom: none;
   }
@@ -137,9 +190,28 @@
     width: 100%;
   }
 
-  @media (min-height: 768px) {
-    .navigationWrapper {
-      font-size: x-large;
-    }
+  .header {
+    /* height: 11rem; */
+  }
+  .header > h1 {
+    font-size: 8vw;
+    margin-top: 3rem;
+  }
+}
+@media (min-height: 768px) {
+  .navigationWrapper {
+    /* font-size: x-large; */
+  }
+}
+
+@media (min-width: 1280px) {
+  .header > h1 {
+    font-size: 6rem;
+    transition-property: font-size;
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition-duration: 0.6s;
+  }
+  .telephone {
+    font-size: 1.5rem;
   }
 }

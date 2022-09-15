@@ -1,20 +1,19 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import indexStyles from "../styles/Index.module.css";
 import navStyles from "../styles/navbar.module.css";
 
 export default function NavigationComponent() {
   return (
     <React.Fragment>
-      <header className={indexStyles.header}>
+      <header className={navStyles.header}>
         <h1>Monika Krakowska Art</h1>
-        <div className={indexStyles.telephone}>
+        <div className={navStyles.telephone}>
           <Image
             src="/phone-solid.svg"
             height={15}
             width={15}
-            className={indexStyles.telephoneIcon}
+            className={navStyles.telephoneIcon}
           />
           <span>32 123 44 55</span>
         </div>

@@ -154,18 +154,6 @@ export default function Home() {
   return (
     <div className={indexStyles.container}>
       <Head>
-        {/* <link
-          href="https://fonts.googleapis.com/css2?family=Alumni+Sans+Pinstripe&display=swap"
-          rel="stylesheet"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Alumni+Sans+Pinstripe:ital@1&display=swap"
-          rel="stylesheet"
-        ></link>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Aboreto&family=Alumni+Sans+Pinstripe&family=Bad+Script&display=swap"
-          rel="stylesheet"
-        ></link> */}
         <link
           href="https://fonts.googleapis.com/css2?family=Aboreto&family=Alumni+Sans+Pinstripe&family=Bad+Script&family=Bodoni+Moda:opsz@6..96&display=swap"
           rel="stylesheet"
