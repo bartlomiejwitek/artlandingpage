@@ -1,0 +1,14 @@
+.wrapper {
+  background-color: var(--color-primary);
+}
+
+.gallery {
+  column-count: 2;
+  column-gap: 1em;
+  row-gap: 1em;
+}
+.item {
+  display: inline-block;
+  margin: 0 0 0.3em;
+  width: 100%;
+}
