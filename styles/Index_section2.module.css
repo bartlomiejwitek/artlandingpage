@@ -7,7 +7,7 @@
   align-items: flex-start;
   /* bottom: -3rem; */
   top: 6.5rem;
-  font-size: 44vw;
+  font-size: 17rem;
   color: white;
 }
 
@@ -18,4 +18,10 @@
 
 .sectionTitle > p {
   color: var(--color-primary);
+}
+
+@media (max-width: 850px), (max-height: 720px) {
+  .backgroundText {
+    font-size: 44vw;
+  }
 }

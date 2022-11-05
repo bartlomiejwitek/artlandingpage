@@ -3,6 +3,7 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import NavigationComponent from "../../components/navigation-component";
+import Gallery from "../../components/gallery-component";
 // import galleryStyles from "../../styles/gallery_index.module.css";
 import galleryStyls from "../../styles/gallery_index.module.css";
 import Image from "next/image";
@@ -42,44 +43,59 @@ export default function () {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <NavigationComponent />
-      <div className={galleryStyls.gallery}>
-        <Image
-          className={galleryStyls.item}
-          src={kotly}
-          alt="Szrenica"
-          layout="responsive"
-        ></Image>
-        <Image
-          className={galleryStyls.item}
-          src={szrenica}
-          alt="Szrenica"
-          layout="responsive"
-        ></Image>
-        <Image
-          className={galleryStyls.item}
-          src={kotly}
-          alt="Szrenica"
-          layout="responsive"
-        ></Image>
-        <Image
-          className={galleryStyls.item}
-          src={szrenica}
-          alt="Szrenica"
-          layout="responsive"
-        ></Image>
-        <Image
-          className={galleryStyls.item}
-          src={pies}
-          alt="Szrenica"
-          layout="responsive"
-        ></Image>
-        <Image
-          className={galleryStyls.item}
-          src={szrenica}
-          alt="Szrenica"
-          layout="responsive"
-        ></Image>
-      </div>
+      <Gallery>
+        <div>
+          <Image
+            className={galleryStyls.item}
+            src={kotly}
+            alt="Szrenica"
+            layout="fill"
+          ></Image>
+        </div>
+        <div>
+          <Image
+            className={galleryStyls.item}
+            src={szrenica}
+            alt="Szrenica"
+            layout="fill"
+          ></Image>
+        </div>
+        <div>
+          <Image
+            className={galleryStyls.item}
+            src={kotly}
+            alt="Szrenica"
+            layout="fill"
+          ></Image>
+        </div>
+        <div>
+          <Image
+            className={galleryStyls.item}
+            src={szrenica}
+            alt="Szrenica"
+            layout="fill"
+          ></Image>
+        </div>
+        <div>
+          <Image
+            className={galleryStyls.item}
+            src={pies}
+            alt="Szrenica"
+            layout="fill"
+          ></Image>
+        </div>
+        <div>
+          <Image
+            className={galleryStyls.item}
+            src={szrenica}
+            alt="Szrenica"
+            layout="fill"
+          ></Image>
+        </div>
+      </Gallery>
+      {/* <div className={galleryStyls.gallery}>
+
+      </div> */}
     </div>
   );
 }

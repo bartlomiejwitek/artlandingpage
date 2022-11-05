@@ -291,6 +291,12 @@
     margin: 30px; /* */
     text-align: justify;
   }
+
+  .sectionsWrapper section:nth-of-type(2) > p {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
   .buttonDown {
     display: none;
     width: 0;

@@ -8,7 +8,7 @@ import szrenica from "../public/images/szrenica1.jpg";
 import navStyles from "../styles/navbar.module.css";
 import kotly from "../public/images/kotly.jpg";
 import pies from "../public/images/pies.jpg";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback, useRef } from "react";
 import { useRouter } from "next/router";
 import NavigationComponent from "../components/navigation-component";
 
@@ -16,6 +16,7 @@ export default function Home() {
   const [windowSize, setWindowSize] = useState();
   const [currentScrollTop, setCurrentScrollTop] = useState();
   const [scrollTop, setScrollTop] = useState({ current: null, past: null });
+  const scrollTopRef = useRef(scrollTop);
   const SCROLL_SNAP_URL_MULTIPIERL = 0.15; /* To multiply this by the screen height */
   const router = useRouter();
 
@@ -28,12 +29,13 @@ export default function Home() {
     setCurrentScrollTop(event.srcElement.scrollTop);
   };
 
-  function debounce(func, timeout = 1000) {
-    let timer;
+  function debounce(func, timeout = 100) {
+    var timer;
     return (...args) => {
-      console.log("returning");
+      // console.log("returning");
       clearTimeout(timer);
       timer = setTimeout(() => {
+        console.log("Invoking debounced function");
         func.apply(this, args);
       }, timeout);
     };
@@ -43,9 +45,16 @@ export default function Home() {
     console.log("inside debounce");
   };
 
+  //UseCallback is needed because otherwise in useEffect multiple different debounce functions are called which defies the whole point
+  const handleSectionUrlChangeCallbackWrapper = useCallback(
+    debounce(() => handleSectionUrlChange()), //This needs to be called because debounce itself returns a function! Does not invoke it!
+    []
+  );
+
   /* Always having the current and one historical value */
   const pushScrollTop = (value) => {
     // console.log(scrollTop);
+    // console.log("Pushscrolltop");
     if (scrollTop.current === null) {
       setScrollTop({ current: value, past: null });
     } else {
@@ -53,13 +62,16 @@ export default function Home() {
     }
   };
 
-  const handleSectionUrlChange = () => {
-    console.log("Hanldesectionurl called!");
+  const handleSectionUrlChange = (test) => {
+    // console.log("Hanldesectionurl called!");
+    // console.log("Test: " + test);
+    let scrollTop = scrollTopRef.current;
     console.log(
       `Curent: ${scrollTop.current}, Past: ${scrollTop.past},  Delta:  ${
         scrollTop.current - scrollTop.past
       }`
     );
+    // console.log("handlesection urlchange");
     if (windowSize !== null && windowSize !== undefined) {
       /* Removing everything past origin in URL -> scrolling up case. section2 -> section1*/
       if (
@@ -68,6 +80,7 @@ export default function Home() {
         scrollTop.current - scrollTop.past < 0
       ) {
         // window.history.pushState({}, "", window.location.origin);
+        console.log("case 1 true");
         router.push("").catch((e) => console.log(e));
       } else if (
         /* Adding #section-two when scrolling from top to bottom section1 -> section2 */
@@ -100,11 +113,11 @@ export default function Home() {
         //   "",
         //   window.location.origin + "#section-three"
         // );
+        console.log("Case three true");
         router.push("#section-three").catch((e) => console.log(e));
       } else if (
         /* Scrolling section3 -> section2 */
-        scrollTop.current >=
-          windowSize.height * (1 + 1 - SCROLL_SNAP_URL_MULTIPIERL) &&
+        scrollTop.current >= windowSize.height * 1 &&
         scrollTop.current <
           windowSize.height * (1 + 1 + SCROLL_SNAP_URL_MULTIPIERL) &&
         scrollTop.current - scrollTop.past < 0
@@ -114,7 +127,10 @@ export default function Home() {
         //   "",
         //   window.location.origin + "#section-two"
         // );
+        console.log("case four true");
         router.push("#section-two").catch((e) => console.log(e));
+      } else {
+        console.log("Nocase true");
       }
     }
   };
@@ -124,7 +140,8 @@ export default function Home() {
   }, [currentScrollTop]);
 
   useEffect(() => {
-    debounce(() => handleSectionUrlChange())(); //This needs to be called because debounce itself returns a function! Does not invoke it!
+    scrollTopRef.current = scrollTop;
+    handleSectionUrlChangeCallbackWrapper();
   }, [scrollTop]);
 
   useEffect(() => {
