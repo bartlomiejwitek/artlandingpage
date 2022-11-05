@@ -17,6 +17,7 @@ export default function Home() {
   const [currentScrollTop, setCurrentScrollTop] = useState();
   const [scrollTop, setScrollTop] = useState({ current: null, past: null });
   const scrollTopRef = useRef(scrollTop);
+  const windowSizeRef = useRef(windowSize);
   const SCROLL_SNAP_URL_MULTIPIERL = 0.15; /* To multiply this by the screen height */
   const router = useRouter();
 
@@ -66,13 +67,16 @@ export default function Home() {
     // console.log("Hanldesectionurl called!");
     // console.log("Test: " + test);
     let scrollTop = scrollTopRef.current;
+    let windowSize = windowSizeRef.current;
     console.log(
       `Curent: ${scrollTop.current}, Past: ${scrollTop.past},  Delta:  ${
         scrollTop.current - scrollTop.past
       }`
     );
     // console.log("handlesection urlchange");
+    console.log("Window size" + windowSize);
     if (windowSize !== null && windowSize !== undefined) {
+      console.log("inside if");
       /* Removing everything past origin in URL -> scrolling up case. section2 -> section1*/
       if (
         scrollTop.current <=
@@ -147,6 +151,7 @@ export default function Home() {
   useEffect(() => {
     console.log("Window size updated:");
     console.log(windowSize);
+    windowSizeRef.current = windowSize;
   }, [windowSize]);
 
   useEffect(() => {
