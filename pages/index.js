@@ -250,8 +250,10 @@ export default function Home() {
             </div>
           </div>
           <div className={indexStyles.pageBreak}></div>
+          <footer className={indexS3Styles.customfooter}>
+            <span>Design and execution - Bartlomiej Witek 2022</span>
+          </footer>
         </section>
-        <footer>Design and execution - Bartlomiej Witek 2022</footer>
       </div>
     </div>
   );
