@@ -278,6 +278,18 @@
   top: 47%;
 }
 
+.progressBarWrapper {
+  position: absolute;
+  width: 100%;
+  top: -5px;
+  height: 5px;
+}
+
+.progressBar {
+  background-color: rgba(91, 91, 91, 0.5);
+  height: 100%;
+}
+
 /* media queries */
 
 @media (max-width: 850px), (max-height: 720px) {

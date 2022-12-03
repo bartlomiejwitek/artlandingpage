@@ -23,6 +23,7 @@ export default function Home() {
   const SCROLL_SNAP_URL_MULTIPIERL = 0.15; /* To multiply this by the screen height */
   const router = useRouter();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [width, setWidth] = useState(0);
 
   const handleCurrentImageIndexChange = (index) => {
     setCurrentImageIndex(index);
@@ -89,12 +90,19 @@ export default function Home() {
     }
   };
 
+  const handleNextImageMemoized = useCallback(() => {
+    handleSliderNextImage();
+  }, [currentImageIndex]);
+
   const handleSliderNextImage = () => {
-    if (currentImageIndex + 1 <= imagesMainSlider.length - 1) {
-      setCurrentImageIndex(currentImageIndex + 1);
-    } else {
-      setCurrentImageIndex(0);
-    }
+    setCurrentImageIndex((prev) => {
+      console.log(prev);
+      if (prev + 1 <= imagesMainSlider.length - 1) {
+        return prev + 1;
+      } else {
+        return 0;
+      }
+    });
   };
 
   const handleSliderPreviousImage = () => {
@@ -182,6 +190,23 @@ export default function Home() {
   };
 
   useEffect(() => {
+    let progressInterval;
+    const imageChangeInteerval = setInterval(() => {
+      clearInterval(progressInterval);
+      console.log("goo next");
+      handleNextImageMemoized();
+      setWidth(0);
+      progressInterval = setInterval(() => {
+        setWidth((prev) => prev + 0.125);
+      }, 5);
+    }, 4000);
+    return () => {
+      clearInterval(imageChangeInteerval);
+      clearInterval(progressInterval);
+    };
+  }, []);
+
+  useEffect(() => {
     pushScrollTop(currentScrollTop);
   }, [currentScrollTop]);
 
@@ -254,6 +279,12 @@ export default function Home() {
                   width={15}
                 />
               </SliderNavigationComponent>
+              <div className={indexStyles.progressBarWrapper}>
+                <div
+                  style={{ width: `${width}%` }}
+                  className={indexStyles.progressBar}
+                ></div>
+              </div>
               <div className={indexStyles.testclass}>
                 {imagesMainSlider[currentImageIndex].textTop}
                 <p>{imagesMainSlider[currentImageIndex].textBottom}</p>
