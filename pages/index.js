@@ -11,6 +11,8 @@ import pies from "../public/images/pies.jpg";
 import { useEffect, useState, useCallback, useRef } from "react";
 import { useRouter } from "next/router";
 import NavigationComponent from "../components/navigation-component";
+import SliderStatusComponent from "../components/slider-status-component";
+import SliderNavigationComponent from "../components/slider-navigation-component";
 
 export default function Home() {
   const [windowSize, setWindowSize] = useState();
@@ -20,6 +22,12 @@ export default function Home() {
   const windowSizeRef = useRef(windowSize);
   const SCROLL_SNAP_URL_MULTIPIERL = 0.15; /* To multiply this by the screen height */
   const router = useRouter();
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const handleCurrentImageIndexChange = (index) => {
+    setCurrentImageIndex(index);
+    console.log(index);
+  };
 
   const handleResize = () => {
     console.log(window.innerWidth + " " + window.innerHeight);
@@ -29,6 +37,24 @@ export default function Home() {
   const handleScroll = (event) => {
     setCurrentScrollTop(event.srcElement.scrollTop);
   };
+
+  const imagesMainSlider = [
+    {
+      img: <Image src={szrenica} alt="Szrenica" layout="fill"></Image>,
+      textTop: "Szrenica",
+      textBottom: "Olej na płótnie",
+    },
+    {
+      img: <Image src={pies} alt="Szrenica" layout="fill"></Image>,
+      textTop: "Pejzaż",
+      textBottom: "<Technika>",
+    },
+    {
+      img: <Image src={kotly} alt="Szrenica" layout="fill"></Image>,
+      textTop: "Kotły",
+      textBottom: "<Technika>",
+    },
+  ];
 
   function debounce(func, timeout = 100) {
     var timer;
@@ -60,6 +86,22 @@ export default function Home() {
       setScrollTop({ current: value, past: null });
     } else {
       setScrollTop({ current: value, past: scrollTop.current });
+    }
+  };
+
+  const handleSliderNextImage = () => {
+    if (currentImageIndex + 1 <= imagesMainSlider.length - 1) {
+      setCurrentImageIndex(currentImageIndex + 1);
+    } else {
+      setCurrentImageIndex(0);
+    }
+  };
+
+  const handleSliderPreviousImage = () => {
+    if (currentImageIndex - 1 >= 0) {
+      setCurrentImageIndex(currentImageIndex - 1);
+    } else {
+      setCurrentImageIndex(imagesMainSlider.length - 1);
     }
   };
 
@@ -189,21 +231,40 @@ export default function Home() {
           <NavigationComponent />
           <div className={indexStyles.sectionOneImageContainer}>
             <div>
-              <Image src={szrenica} alt="Szrenica" layout="fill"></Image>
+              <SliderNavigationComponent
+                className={indexStyles.sliderNavigationLeft}
+                onClickHandler={handleSliderPreviousImage}
+              >
+                {" "}
+                <Image
+                  src="/west_FILL0_wght400_GRAD0_opsz48.svg"
+                  height={15}
+                  width={15}
+                />
+              </SliderNavigationComponent>
+              {imagesMainSlider[currentImageIndex].img}
+              <SliderNavigationComponent
+                className={indexStyles.sliderNavigationRight}
+                onClickHandler={handleSliderNextImage}
+              >
+                {" "}
+                <Image
+                  src="/east_FILL0_wght400_GRAD0_opsz48.svg"
+                  height={15}
+                  width={15}
+                />
+              </SliderNavigationComponent>
               <div className={indexStyles.testclass}>
-                Śnieżka
-                <p>Olej na płótnie</p>
+                {imagesMainSlider[currentImageIndex].textTop}
+                <p>{imagesMainSlider[currentImageIndex].textBottom}</p>
               </div>
             </div>
           </div>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-            placerat lectus at mauris elementum malesuada. Nunc fringilla purus
-            nec tortor malesuada, quis feugiat diam porta. Mauris vulputate
-            magna ac ligula aliquet, at fermentum ex mattis. Donec a efficitur
-            libero. Duis est ligula, commodo a sem sit amet, pharetra pharetra
-            ligula.
-          </p>
+          <SliderStatusComponent
+            handleCurrentImageIndexChange={handleCurrentImageIndexChange}
+            currentImageIndex={currentImageIndex}
+            images={imagesMainSlider}
+          />
           <div className={indexStyles.sectionTitle}>
             <p>1. Strona główna</p>
             <div></div>

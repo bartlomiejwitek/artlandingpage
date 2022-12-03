@@ -266,6 +266,18 @@
     brightness(102%) contrast(101%);
 }
 
+.sliderNavigationLeft {
+  position: relative;
+  right: 50px;
+  top: 50%;
+}
+
+.sliderNavigationRight {
+  position: relative;
+  left: 580px;
+  top: 47%;
+}
+
 /* media queries */
 
 @media (max-width: 850px), (max-height: 720px) {
