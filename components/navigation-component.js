@@ -45,8 +45,12 @@ export default function NavigationComponent() {
           <li className={navStyles.navButton}>
             <Link href="/gallery">Galeria</Link>
           </li>
-          <li className={navStyles.navButton}>Kontakt</li>
-          <li className={navStyles.navButton}>O mnie</li>
+          <li className={navStyles.navButton}>
+            <Link href="/contact">Kontakt</Link>
+          </li>
+          <li className={navStyles.navButton}>
+            <Link href="/news">News</Link>
+          </li>
         </ul>
       </nav>
     </React.Fragment>

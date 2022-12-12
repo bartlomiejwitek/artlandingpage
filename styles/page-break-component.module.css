@@ -1,0 +1,28 @@
+.wrapper {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+  height: 3.5rem;
+  /* background-color: brown; */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.inner {
+  /* background-color: aqua; */
+  font-size: 3rem;
+  color: white;
+}
+
+.innerLeft {
+  height: 3px;
+  background-color: white;
+  width: 38vw;
+}
+
+.innerRight {
+  height: 3px;
+  background-color: white;
+  width: 38vw;
+}
