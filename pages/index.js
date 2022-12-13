@@ -22,7 +22,9 @@ export default function Home() {
   const windowSizeRef = useRef(windowSize);
   const SCROLL_SNAP_URL_MULTIPIERL = 0.15; /* To multiply this by the screen height */
   const router = useRouter();
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [currentImageIndex, setCurrentImageIndex] = useState(1);
+  const [currentLeftImageIndex, setCurrentLeftImageIndex] = useState(0);
+  const [currentRightImageIndex, setCurrentRightImageIndex] = useState(2);
   const [width, setWidth] = useState(0);
   const [imageStyle, setImageStyle] = useState({
     opacity: "0.2",
@@ -47,9 +49,6 @@ export default function Home() {
 
   const smoothImageAnimation = () => {
     setImageStyle({ opacity: "1.0", transition: "opacity 0.5s" });
-    // setTimeout(() => {
-    //   setImageStyle({ opacity: "0.2", transition: "opacity 0.5s" });
-    // }, 5700);
   };
 
   const imagesMainSlider = [
@@ -293,6 +292,9 @@ export default function Home() {
       <div className={indexStyles.sectionsWrapper} id="sections-wrapper">
         <section>
           <NavigationComponent />
+          <div className={indexStyles.leftImage}>
+            {/* <div>{imagesMainSlider[currentLeftImageIndex].img}</div> */}
+          </div>
           <div className={indexStyles.sectionOneImageContainer}>
             <div
               onMouseEnter={() => {

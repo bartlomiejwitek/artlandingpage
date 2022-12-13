@@ -13,6 +13,11 @@
   object-fit: cover;
 }
 
+.wrapper > div:hover {
+  cursor: pointer;
+  transition: opacity 1s;
+}
+
 @media (max-width: 850px), (max-height: 850px) {
   .wrapper {
     grid-template-columns: 100%;

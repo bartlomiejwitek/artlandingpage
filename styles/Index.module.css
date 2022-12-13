@@ -154,6 +154,25 @@
   bottom: 10em;
 }
 
+.leftImage {
+  position: absolute;
+  left: 0px;
+  display: flex;
+  flex-grow: 5;
+  justify-content: center;
+  width: 100%;
+}
+
+.leftImage > div {
+  width: 40vw;
+  max-width: 300px;
+  max-height: 400px;
+  height: 40vh;
+  left: 0px;
+  top: 45vh;
+  position: absolute; /* parten of image must be relative for size to work*/
+}
+
 /* labels */
 .sectionOneLabel {
   /* position: relative; */
@@ -284,6 +303,7 @@
   width: 100%;
   top: -5px;
   height: 5px;
+  z-index: 100;
 }
 
 .progressBar {
@@ -328,6 +348,10 @@
     width: 0;
     height: 0;
   }
+
+  .sliderNavigationRight {
+    left: 450px;
+  }
 }
 
 /* @media (min-width: 1280px) {
@@ -348,5 +372,9 @@
     max-width: 450px;
     /* height: 60vh; */
     position: relative; /* parten of image must be relative for size to work*/
+  }
+
+  .sliderNavigationRight {
+    left: 450px;
   }
 }
