@@ -268,13 +268,14 @@
 
 .sliderNavigationLeft {
   position: relative;
-  right: 50px;
+  right: -25px;
+  z-index: 100;
   top: 50%;
 }
 
 .sliderNavigationRight {
   position: relative;
-  left: 580px;
+  left: 500px;
   top: 47%;
 }
 

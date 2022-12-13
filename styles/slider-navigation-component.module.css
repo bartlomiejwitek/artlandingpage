@@ -1,0 +1,14 @@
+.button {
+  background-color: white;
+  opacity: 0;
+  transition: opacity 0.2s;
+  border-radius: 15%;
+  padding: 3px;
+  width: fit-content;
+  display: flex;
+  box-shadow: 1px 1px 1px black;
+}
+
+.show {
+  opacity: 1;
+}

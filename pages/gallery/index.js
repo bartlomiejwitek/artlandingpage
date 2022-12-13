@@ -87,7 +87,7 @@ export default function () {
           ></Image>
         </div>
       </Gallery>
-      <PageBreakComponent>Inne</PageBreakComponent>
+      <PageBreakComponent>Kopie</PageBreakComponent>
       <Gallery>
         <div>
           <Image

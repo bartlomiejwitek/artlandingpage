@@ -24,6 +24,12 @@ export default function Home() {
   const router = useRouter();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [width, setWidth] = useState(0);
+  const [imageStyle, setImageStyle] = useState({
+    opacity: "0.2",
+    transition: "opacity 1s",
+  });
+  const [showImageNavigationControls, setShowImageNavigationControls] =
+    useState(false);
 
   const handleCurrentImageIndexChange = (index) => {
     setCurrentImageIndex(index);
@@ -39,19 +45,50 @@ export default function Home() {
     setCurrentScrollTop(event.srcElement.scrollTop);
   };
 
+  const smoothImageAnimation = () => {
+    setImageStyle({ opacity: "1.0", transition: "opacity 0.5s" });
+    // setTimeout(() => {
+    //   setImageStyle({ opacity: "0.2", transition: "opacity 0.5s" });
+    // }, 5700);
+  };
+
   const imagesMainSlider = [
     {
-      img: <Image src={szrenica} alt="Szrenica" layout="fill"></Image>,
+      img: (
+        <Image
+          src={szrenica}
+          alt="Szrenica"
+          layout="fill"
+          style={imageStyle}
+          onLoad={smoothImageAnimation}
+        ></Image>
+      ),
       textTop: "Szrenica",
       textBottom: "Olej na płótnie",
     },
     {
-      img: <Image src={pies} alt="Szrenica" layout="fill"></Image>,
+      img: (
+        <Image
+          src={pies}
+          alt="Szrenica"
+          layout="fill"
+          style={imageStyle}
+          onLoad={smoothImageAnimation}
+        ></Image>
+      ),
       textTop: "Pejzaż",
       textBottom: "<Technika>",
     },
     {
-      img: <Image src={kotly} alt="Szrenica" layout="fill"></Image>,
+      img: (
+        <Image
+          src={kotly}
+          alt="Szrenica"
+          layout="fill"
+          style={imageStyle}
+          onLoad={smoothImageAnimation}
+        ></Image>
+      ),
       textTop: "Kotły",
       textBottom: "<Technika>",
     },
@@ -60,18 +97,14 @@ export default function Home() {
   function debounce(func, timeout = 100) {
     var timer;
     return (...args) => {
-      // console.log("returning");
       clearTimeout(timer);
       timer = setTimeout(() => {
-        console.log("Invoking debounced function");
         func.apply(this, args);
       }, timeout);
     };
   }
 
-  const testFunction = () => {
-    console.log("inside debounce");
-  };
+  const testFunction = () => {};
 
   //UseCallback is needed because otherwise in useEffect multiple different debounce functions are called which defies the whole point
   const handleSectionUrlChangeCallbackWrapper = useCallback(
@@ -96,7 +129,6 @@ export default function Home() {
 
   const handleSliderNextImage = () => {
     setCurrentImageIndex((prev) => {
-      console.log(prev);
       if (prev + 1 <= imagesMainSlider.length - 1) {
         return prev + 1;
       } else {
@@ -192,17 +224,30 @@ export default function Home() {
   useEffect(() => {
     let progressInterval;
     progressInterval = setInterval(() => {
-      setWidth((prev) => prev + 0.125);
-    }, 5);
+      setWidth((prev) => {
+        if (prev > 93.5) {
+          console.log("width greater than 92");
+          setImageStyle({ opacity: "0.2", transition: "opacity 0.5s" });
+        }
+        return prev + 0.25;
+      });
+    }, 15);
     const imageChangeInteerval = setInterval(() => {
       clearInterval(progressInterval);
       console.log("goo next");
       handleNextImageMemoized();
       setWidth(0);
       progressInterval = setInterval(() => {
-        setWidth((prev) => prev + 0.125);
-      }, 5);
-    }, 4000);
+        setWidth((prev) => {
+          console.log(prev);
+          if (prev > 93.5) {
+            console.log("width greater than 91.5");
+            setImageStyle({ opacity: "0.2", transition: "opacity 0.5s" });
+          }
+          return prev + 0.25;
+        });
+      }, 15);
+    }, 6000);
     return () => {
       clearInterval(imageChangeInteerval);
       clearInterval(progressInterval);
@@ -249,10 +294,19 @@ export default function Home() {
         <section>
           <NavigationComponent />
           <div className={indexStyles.sectionOneImageContainer}>
-            <div>
+            <div
+              onMouseEnter={() => {
+                console.log("mouse enter");
+                setShowImageNavigationControls(true);
+              }}
+              onMouseLeave={() => {
+                setShowImageNavigationControls(false);
+              }}
+            >
               <SliderNavigationComponent
                 className={indexStyles.sliderNavigationLeft}
                 onClickHandler={handleSliderPreviousImage}
+                show={showImageNavigationControls}
               >
                 {" "}
                 <Image
@@ -265,6 +319,7 @@ export default function Home() {
               <SliderNavigationComponent
                 className={indexStyles.sliderNavigationRight}
                 onClickHandler={handleSliderNextImage}
+                show={showImageNavigationControls}
               >
                 {" "}
                 <Image
