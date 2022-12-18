@@ -17,7 +17,7 @@ export default function Gallery({ children }) {
     const rowGap = Number.parseInt(
       getComputedStyle(wrapper).getPropertyValue("grid-row-gap")
     );
-    console.log(element.getElementsByTagName("img")[0].naturalWidth);
+    // console.log(element.getElementsByTagName("img")[0].naturalWidth);
     const innerImgElement = element.getElementsByTagName("img")[0];
     const height = computeHeightFromNaturalHeight(
       innerImgElement.width,
@@ -49,9 +49,9 @@ export default function Gallery({ children }) {
     const config = { attributes: true, childList: true, subtree: true };
     const observer = new MutationObserver((mutationList) =>
       mutationList.forEach((mutation) => {
-        console.log(mutation);
+        // console.log(mutation);
         if (mutation.target.tagName === "IMG") {
-          console.log(mutation);
+          // console.log(mutation);
           mutation.target.addEventListener("load", resizeElements, false);
         }
       })

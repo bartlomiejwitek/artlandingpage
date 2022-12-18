@@ -19,12 +19,14 @@ import AndriensPreparing from "../../public/images/kopie/andreiens_preparing.jpg
 import HugoEngl from "../../public/images/kopie/hugo.JPG";
 import AfternoonTea from "../../public/images/kopie/afternoon_tea.JPG";
 import Breakfast from "../../public/images/kopie/carl_w_breakfast.JPG";
+import ZoominComponent from "../../components/zoomin-component";
 
 export default function () {
   const router = useRouter();
   const [imageStyle, setImageStyle] = useState({});
   const imagesRef = useRef([]);
   const imagesOverlayRef = useRef([]);
+  const [showZoomin, setShowZoomin] = useState(false);
 
   const imagesLandscapes = [
     {
@@ -114,6 +116,11 @@ export default function () {
                 key={i}
                 className={galleryStyls.imageOverlay}
                 ref={(el) => (imagesOverlayRef.current[i] = el)}
+                onClick={() => {
+                  console.log(i);
+                  console.log(imagesLandscapes[i]);
+                  setShowZoomin(i);
+                }}
               >
                 {image.alt}
               </span>
@@ -178,6 +185,15 @@ export default function () {
           ></Image>
         </div>
       </Gallery>
+      {showZoomin !== false ? (
+        <ZoominComponent
+          image={imagesLandscapes[showZoomin].img}
+          title={imagesLandscapes[showZoomin].alt}
+          close={() => {
+            setShowZoomin(false);
+          }}
+        />
+      ) : null}
       <footer
         className={indexS3Styles.customfooter}
         style={{ position: "relative", marginTop: "20px" }}

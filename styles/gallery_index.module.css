@@ -1,5 +1,6 @@
 .wrapper {
   background-color: var(--color-primary);
+  overflow: hidden;
 }
 
 .gallery {
