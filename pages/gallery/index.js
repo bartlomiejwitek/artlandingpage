@@ -119,6 +119,7 @@ export default function () {
                 onClick={() => {
                   console.log(i);
                   console.log(imagesLandscapes[i]);
+                  document.body.style.overflow = "hidden";
                   setShowZoomin(i);
                 }}
               >
@@ -191,6 +192,7 @@ export default function () {
           title={imagesLandscapes[showZoomin].alt}
           close={() => {
             setShowZoomin(false);
+            document.body.style.overflow = "unset";
           }}
         />
       ) : null}

@@ -37,6 +37,7 @@
   top: 0;
   position: absolute;
   overflow: hidden;
+  z-index: 500;
 }
 
 .buttons > button {
