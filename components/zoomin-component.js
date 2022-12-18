@@ -15,6 +15,10 @@ export default function ZoominComponent({ image, title, close, next, prev }) {
     };
   }, []);
 
+  useEffect(() => {
+    resizeImage();
+  }, [image]);
+
   //   useEffect(() => {
   //     console.log(dimensions);
   //     if (dimensions) {

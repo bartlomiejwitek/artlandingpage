@@ -75,6 +75,19 @@ export default function () {
         ),
       },
     ],
+    [
+      {
+        alt: "Inny obraz",
+        img: (
+          <Image
+            className={galleryStyls.item}
+            src={MonkByTheSea}
+            alt="Caspar David Friedrich - Monk By The Sea"
+            layout="fill"
+          ></Image>
+        ),
+      },
+    ],
   ];
 
   useEffect(() => {
@@ -112,12 +125,29 @@ export default function () {
       if (prev[1] + 1 < images[prev[0]].length) {
         return [prev[0], prev[1] + 1];
       } else {
-        return prev;
+        //next array exists (next section)
+        if (images[prev[0] + 1]) {
+          return [prev[0] + 1, 0];
+        } else {
+          return prev;
+        }
       }
     });
   };
 
-  const previousButtonClick = () => {};
+  const previousButtonClick = () => {
+    setShowZoomin((prev) => {
+      if (prev[1] - 1 >= 0) {
+        return [prev[0], prev[1] - 1];
+      } else {
+        if (images[prev[0] - 1]) {
+          return [prev[0] - 1, images[prev[0] - 1].length - 1];
+        } else {
+          return prev;
+        }
+      }
+    });
+  };
 
   return (
     <div className={galleryStyls.wrapper}>
@@ -213,6 +243,9 @@ export default function () {
           }}
           next={() => {
             nextButtonClick();
+          }}
+          prev={() => {
+            previousButtonClick();
           }}
         />
       ) : null}
