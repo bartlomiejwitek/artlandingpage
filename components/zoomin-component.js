@@ -1,7 +1,7 @@
 import styles from "../styles/zoomin-component.module.css";
 import { useEffect, useState, useRef } from "react";
 
-export default function ZoominComponent({ image, title, close }) {
+export default function ZoominComponent({ image, title, close, next, prev }) {
   const imageWrapperRef = useRef();
   const popupWrapperRef = useRef();
 
@@ -61,7 +61,8 @@ export default function ZoominComponent({ image, title, close }) {
           {image}
         </div>
         <div className={styles.buttons}>
-          <button>prev</button> <button>next</button>
+          <button onClick={prev}>prev</button>{" "}
+          <button onClick={next}>next</button>
         </div>
       </div>
     </>

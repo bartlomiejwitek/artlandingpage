@@ -28,51 +28,53 @@ export default function () {
   const imagesOverlayRef = useRef([]);
   const [showZoomin, setShowZoomin] = useState(false);
 
-  const imagesLandscapes = [
-    {
-      alt: "Szrenica",
-      img: (
-        <Image
-          className={galleryStyls.item}
-          src={kotly}
-          alt="Szrenica"
-          layout="fill"
-        ></Image>
-      ),
-    },
-    {
-      alt: "Szrenica",
-      img: (
-        <Image
-          className={galleryStyls.item}
-          src={szrenica}
-          alt="Szrenica"
-          layout="fill"
-        ></Image>
-      ),
-    },
-    {
-      alt: "Kotły",
-      img: (
-        <Image
-          className={galleryStyls.item}
-          src={kotly}
-          alt="Szrenica"
-          layout="fill"
-        ></Image>
-      ),
-    },
-    {
-      alt: "Kotły",
-      img: (
-        <Image
-          className={galleryStyls.item}
-          src={szrenica}
-          alt="Szrenica"
-          layout="fill"
-        ></Image>
-      ),
-    },
+  const images = [
+    [
+      {
+        alt: "Szrenica",
+        img: (
+          <Image
+            className={galleryStyls.item}
+            src={kotly}
+            alt="Szrenica"
+            layout="fill"
+          ></Image>
+        ),
+      },
+      {
+        alt: "Szrenica",
+        img: (
+          <Image
+            className={galleryStyls.item}
+            src={szrenica}
+            alt="Szrenica"
+            layout="fill"
+          ></Image>
+        ),
+      },
+      {
+        alt: "Kotły",
+        img: (
+          <Image
+            className={galleryStyls.item}
+            src={kotly}
+            alt="Szrenica"
+            layout="fill"
+          ></Image>
+        ),
+      },
+      {
+        alt: "Kotły",
+        img: (
+          <Image
+            className={galleryStyls.item}
+            src={szrenica}
+            alt="Szrenica"
+            layout="fill"
+          ></Image>
+        ),
+      },
+    ],
   ];
 
   useEffect(() => {
@@ -102,12 +104,27 @@ export default function () {
     imagesOverlayRef.current[refId].style.opacity = "0.0";
   };
 
+  const nextButtonClick = () => {
+    //dodac tutaj tak zeby przeskakiwal do nsatepnego arraya zeby przez wszystkie sekcje szlo
+    setShowZoomin((prev) => {
+      console.log(prev);
+      console.log(images[prev[0]].length);
+      if (prev[1] + 1 < images[prev[0]].length) {
+        return [prev[0], prev[1] + 1];
+      } else {
+        return prev;
+      }
+    });
+  };
+
+  const previousButtonClick = () => {};
+
   return (
     <div className={galleryStyls.wrapper}>
       <NavigationComponent />
       <PageBreakComponent>Pejzaże</PageBreakComponent>
       <Gallery>
-        {imagesLandscapes.map((image, i) => {
+        {images[0].map((image, i) => {
           return (
             <div>
               <span
@@ -118,9 +135,9 @@ export default function () {
                 ref={(el) => (imagesOverlayRef.current[i] = el)}
                 onClick={() => {
                   console.log(i);
-                  console.log(imagesLandscapes[i]);
+                  console.log(images[0][i]);
                   document.body.style.overflow = "hidden";
-                  setShowZoomin(i);
+                  setShowZoomin([0, i]);
                 }}
               >
                 {image.alt}
@@ -188,11 +205,14 @@ export default function () {
       </Gallery>
       {showZoomin !== false ? (
         <ZoominComponent
-          image={imagesLandscapes[showZoomin].img}
-          title={imagesLandscapes[showZoomin].alt}
+          image={images[showZoomin[0]][showZoomin[1]].img}
+          title={images[showZoomin[0]][showZoomin[1]].alt}
           close={() => {
             setShowZoomin(false);
             document.body.style.overflow = "unset";
+          }}
+          next={() => {
+            nextButtonClick();
           }}
         />
       ) : null}
