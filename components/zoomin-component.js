@@ -1,5 +1,6 @@
 import styles from "../styles/zoomin-component.module.css";
 import { useEffect, useState, useRef } from "react";
+import Image from "next/image";
 
 export default function ZoominComponent({ image, title, close, next, prev }) {
   const imageWrapperRef = useRef();
@@ -65,8 +66,22 @@ export default function ZoominComponent({ image, title, close, next, prev }) {
           {image}
         </div>
         <div className={styles.buttons}>
-          <button onClick={prev}>prev</button>{" "}
-          <button onClick={next}>next</button>
+          <button onClick={prev}>
+            {" "}
+            <Image
+              src="/west_FILL0_wght400_GRAD0_opsz48.svg"
+              height={15}
+              width={15}
+            />
+          </button>{" "}
+          <button onClick={next}>
+            {" "}
+            <Image
+              src="/east_FILL0_wght400_GRAD0_opsz48.svg"
+              height={15}
+              width={15}
+            />
+          </button>
         </div>
       </div>
     </>

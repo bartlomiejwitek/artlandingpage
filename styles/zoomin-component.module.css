@@ -10,6 +10,7 @@
 
 .title {
   width: 100%;
+  font-size: xx-large;
   height: 5%;
   background-color: white;
   display: flex;
@@ -19,6 +20,7 @@
 .image {
   position: relative;
   height: 90%;
+  transition: opacity 1s;
 }
 .buttons {
   position: relative;
@@ -42,10 +44,30 @@
 
 .buttons > button {
   cursor: pointer;
+  background-color: white;
+  box-shadow: none;
+  width: 60px;
+  margin: 5px;
+  border: none;
+  border-radius: 5%;
+}
+
+.buttons > button:hover {
+  background-color: whitesmoke;
+  border-bottom: 1px solid black;
+  transition: background-color 0.5s;
 }
 
 .closeButton {
   position: absolute;
+  background-color: white;
   right: 5px;
   cursor: pointer;
+  border: none;
+}
+
+.closeButton:hover {
+  background-color: whitesmoke;
+  border-bottom: 1px solid black;
+  transition: background-color 0.5s;
 }
