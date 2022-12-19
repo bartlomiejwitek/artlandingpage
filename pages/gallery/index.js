@@ -20,6 +20,15 @@ import HugoEngl from "../../public/images/kopie/hugo.JPG";
 import AfternoonTea from "../../public/images/kopie/afternoon_tea.JPG";
 import Breakfast from "../../public/images/kopie/carl_w_breakfast.JPG";
 import ZoominComponent from "../../components/zoomin-component";
+//import pejzaze
+import Chata from "../../public/images/pejzaze/chata.jpg";
+import IMG_0190 from "../../public/images/pejzaze/IMG_0190.JPG";
+import IMG_0328 from "../../public/images/pejzaze/IMG_0328.JPG";
+import IMG_5836 from "../../public/images/pejzaze/IMG_5836.JPG";
+import IMG_5843 from "../../public/images/pejzaze/IMG_5843.JPG";
+import IMG_6020 from "../../public/images/pejzaze/IMG_6020.JPG";
+import IMG_6734 from "../../public/images/pejzaze/IMG_6734.JPG";
+import KROWY1 from "../../public/images/pejzaze/KROWY1.JPG";
 
 export default function () {
   const router = useRouter();
@@ -58,7 +67,7 @@ export default function () {
         img: (
           <Image
             className={galleryStyls.item}
-            src="/images/pejzaze/chata.jpg"
+            src={Chata}
             alt="Chata"
             layout="fill"
           ></Image>
@@ -69,7 +78,7 @@ export default function () {
         img: (
           <Image
             className={galleryStyls.item}
-            src="/images/pejzaze/IMG_0190.JPG"
+            src={IMG_0190}
             alt="IMG_0190.JPG"
             layout="fill"
           ></Image>
@@ -80,7 +89,7 @@ export default function () {
         img: (
           <Image
             className={galleryStyls.item}
-            src="/images/pejzaze/IMG_0328.JPG"
+            src={IMG_0328}
             alt="IMG_0328.jpg"
             layout="fill"
           ></Image>
@@ -91,7 +100,7 @@ export default function () {
         img: (
           <Image
             className={galleryStyls.item}
-            src="/images/pejzaze/IMG_5836.JPG"
+            src={IMG_5836}
             alt="IMG_5836.jpg"
             layout="fill"
           ></Image>
@@ -102,7 +111,7 @@ export default function () {
         img: (
           <Image
             className={galleryStyls.item}
-            src="/images/pejzaze/IMG_5843.JPG"
+            src={IMG_5843}
             alt="IMG_5843.jpg"
             layout="fill"
           ></Image>
@@ -113,7 +122,7 @@ export default function () {
         img: (
           <Image
             className={galleryStyls.item}
-            src="/images/pejzaze/IMG_6020.JPG"
+            src={IMG_6020}
             alt="IMG_6020.jpg"
             layout="fill"
           ></Image>
@@ -124,7 +133,7 @@ export default function () {
         img: (
           <Image
             className={galleryStyls.item}
-            src="/images/pejzaze/IMG_6734.JPG"
+            src={IMG_6734}
             alt="IMG_6734.jpg"
             layout="fill"
           ></Image>
@@ -135,30 +144,8 @@ export default function () {
         img: (
           <Image
             className={galleryStyls.item}
-            src="/images/pejzaze/KROWY1.JPG"
+            src={KROWY1}
             alt="KROWY1.jpg"
-            layout="fill"
-          ></Image>
-        ),
-      },
-      {
-        alt: "P1080017.jpg",
-        img: (
-          <Image
-            className={galleryStyls.item}
-            src="/images/pejzaze/P1080017.JPG"
-            alt="P1080017.JPG"
-            layout="fill"
-          ></Image>
-        ),
-      },
-      {
-        alt: "PB1700014.JPG",
-        img: (
-          <Image
-            className={galleryStyls.item}
-            src="/images/pejzaze/PB1700014.JPG"
-            alt="PB1700014.JPG"
             layout="fill"
           ></Image>
         ),
