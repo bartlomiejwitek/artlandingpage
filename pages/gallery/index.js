@@ -27,16 +27,17 @@ export default function () {
   const imagesRef = useRef([]);
   const imagesOverlayRef = useRef([]);
   const [showZoomin, setShowZoomin] = useState(false);
+  const [previousScroll, setPreviosScroll] = useState(0);
 
   const images = [
     [
       {
-        alt: "Szrenica",
+        alt: "Kotły",
         img: (
           <Image
             className={galleryStyls.item}
             src={kotly}
-            alt="Szrenica"
+            alt="Kotły"
             layout="fill"
           ></Image>
         ),
@@ -53,23 +54,111 @@ export default function () {
         ),
       },
       {
-        alt: "Kotły",
+        alt: "Chata",
         img: (
           <Image
             className={galleryStyls.item}
-            src={kotly}
-            alt="Szrenica"
+            src="/images/pejzaze/chata.jpg"
+            alt="Chata"
             layout="fill"
           ></Image>
         ),
       },
       {
-        alt: "Kotły",
+        alt: "IMG_0190.JPG",
         img: (
           <Image
             className={galleryStyls.item}
-            src={szrenica}
-            alt="Szrenica"
+            src="/images/pejzaze/IMG_0190.JPG"
+            alt="IMG_0190.JPG"
+            layout="fill"
+          ></Image>
+        ),
+      },
+      {
+        alt: "img_0328.jpg",
+        img: (
+          <Image
+            className={galleryStyls.item}
+            src="/images/pejzaze/IMG_0328.JPG"
+            alt="IMG_0328.jpg"
+            layout="fill"
+          ></Image>
+        ),
+      },
+      {
+        alt: "img_5836.jpg",
+        img: (
+          <Image
+            className={galleryStyls.item}
+            src="/images/pejzaze/IMG_5836.JPG"
+            alt="IMG_5836.jpg"
+            layout="fill"
+          ></Image>
+        ),
+      },
+      {
+        alt: "img_5843.jpg",
+        img: (
+          <Image
+            className={galleryStyls.item}
+            src="/images/pejzaze/IMG_5843.JPG"
+            alt="IMG_5843.jpg"
+            layout="fill"
+          ></Image>
+        ),
+      },
+      {
+        alt: "img_6020.jpg",
+        img: (
+          <Image
+            className={galleryStyls.item}
+            src="/images/pejzaze/IMG_6020.JPG"
+            alt="IMG_6020.jpg"
+            layout="fill"
+          ></Image>
+        ),
+      },
+      {
+        alt: "img_6734.jpg",
+        img: (
+          <Image
+            className={galleryStyls.item}
+            src="/images/pejzaze/IMG_6734.JPG"
+            alt="IMG_6734.jpg"
+            layout="fill"
+          ></Image>
+        ),
+      },
+      {
+        alt: "krowy1.jpg",
+        img: (
+          <Image
+            className={galleryStyls.item}
+            src="/images/pejzaze/KROWY1.JPG"
+            alt="KROWY1.jpg"
+            layout="fill"
+          ></Image>
+        ),
+      },
+      {
+        alt: "P1080017.jpg",
+        img: (
+          <Image
+            className={galleryStyls.item}
+            src="/images/pejzaze/P1080017.JPG"
+            alt="P1080017.JPG"
+            layout="fill"
+          ></Image>
+        ),
+      },
+      {
+        alt: "PB1700014.JPG",
+        img: (
+          <Image
+            className={galleryStyls.item}
+            src="/images/pejzaze/PB1700014.JPG"
+            alt="PB1700014.JPG"
             layout="fill"
           ></Image>
         ),
@@ -167,6 +256,8 @@ export default function () {
                   console.log(i);
                   console.log(images[0][i]);
                   document.body.style.overflow = "hidden";
+                  setPreviosScroll(window.scrollY);
+                  window.scrollTo(0, 0);
                   setShowZoomin([0, i]);
                 }}
               >
@@ -239,6 +330,8 @@ export default function () {
           title={images[showZoomin[0]][showZoomin[1]].alt}
           close={() => {
             setShowZoomin(false);
+            console.log(previousScroll);
+            window.scrollTo(0, previousScroll);
             document.body.style.overflow = "unset";
           }}
           next={() => {
