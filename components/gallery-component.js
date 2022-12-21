@@ -17,7 +17,7 @@ export default function Gallery({ children }) {
     const rowGap = Number.parseInt(
       getComputedStyle(wrapper).getPropertyValue("grid-row-gap")
     );
-    console.log(element.getElementsByTagName("img")[0].naturalWidth);
+    // console.log(element.getElementsByTagName("img")[0].naturalWidth);
     const innerImgElement = element.getElementsByTagName("img")[0];
     const height = computeHeightFromNaturalHeight(
       innerImgElement.width,
@@ -47,11 +47,12 @@ export default function Gallery({ children }) {
 
   useEffect(() => {
     const config = { attributes: true, childList: true, subtree: true };
+    let resizeInterval = setInterval(() => {
+      resizeElements();
+    }, 3000);
     const observer = new MutationObserver((mutationList) =>
       mutationList.forEach((mutation) => {
-        console.log(mutation);
         if (mutation.target.tagName === "IMG") {
-          console.log(mutation);
           mutation.target.addEventListener("load", resizeElements, false);
         }
       })
@@ -63,6 +64,7 @@ export default function Gallery({ children }) {
     return () => {
       observer.disconnect();
       window.removeEventListener("resize", resizeElements);
+      clearInterval(resizeInterval);
     };
   }, []);
 

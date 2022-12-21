@@ -32,16 +32,12 @@ export default function ZoominComponent({ image, title, close, next, prev }) {
     const imgW = image.props.src.width;
     const ratio = imgW / imgH;
 
-    console.log("Ration not null");
     let width = popupWrapperRef.current.clientHeight * 0.8 * ratio;
-    console.log("width: " + width);
-    console.log(imageWrapperRef);
-    console.log(popupWrapperRef);
+
     if (popupWrapperRef.current.clientWidth < width) {
       width = popupWrapperRef.current.clientWidth;
       let height = width / ratio;
       imageWrapperRef.current.style.height = `${height}px`;
-      console.log("snapping to parent");
     }
     imageWrapperRef.current.style.width = `${width}px`;
     imageWrapperRef.current.style.height = `${
