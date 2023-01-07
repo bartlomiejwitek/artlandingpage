@@ -1,6 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import indexStyles from "../styles/Index.module.css";
+import layoutStyles from "../styles/layout-componetn.module.css";
 
 export default function LayoutComponent({ children }) {
   return (
@@ -15,6 +16,8 @@ export default function LayoutComponent({ children }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       {children}
+      {/* <div className={layoutStyles.firstLine}></div>
+      <div className={layoutStyles.secondLine}></div> */}
     </div>
   );
 }

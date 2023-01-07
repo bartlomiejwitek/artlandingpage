@@ -212,20 +212,43 @@ export default function Home() {
         //   "",
         //   window.location.origin + "#section-two"
         // );
-        console.log("case four true");
+        // console.log("case four true");
         router.push("#section-two").catch((e) => console.log(e));
       } else {
-        console.log("Nocase true");
+        // console.log("Nocase true");
       }
     }
   };
+
+  useEffect(() => {
+    console.log(
+      "current:" +
+        currentImageIndex +
+        " . " +
+        imagesMainSlider[currentImageIndex].textTop +
+        " left woudl be: " +
+        (currentImageIndex - 1)
+    );
+    if (currentImageIndex + 1 < 3) {
+      console.log("next left:" + (currentImageIndex - 1));
+      setCurrentLeftImageIndex(currentImageIndex + 1);
+    } else {
+      setCurrentLeftImageIndex(0);
+      console.log("next left:" + (imagesMainSlider.length - 1));
+    }
+    if (currentImageIndex - 1 >= 0) {
+      setCurrentRightImageIndex(currentImageIndex - 1);
+    } else {
+      setCurrentRightImageIndex(imagesMainSlider.length - 1);
+    }
+  }, [currentImageIndex]);
 
   useEffect(() => {
     let progressInterval;
     progressInterval = setInterval(() => {
       setWidth((prev) => {
         if (prev > 93.5) {
-          console.log("width greater than 92");
+          // console.log("width greater than 92");
           setImageStyle({ opacity: "0.2", transition: "opacity 0.5s" });
         }
         return prev + 0.25;
@@ -233,14 +256,14 @@ export default function Home() {
     }, 15);
     const imageChangeInteerval = setInterval(() => {
       clearInterval(progressInterval);
-      console.log("goo next");
+      // console.log("goo next");
       handleNextImageMemoized();
       setWidth(0);
       progressInterval = setInterval(() => {
         setWidth((prev) => {
-          console.log(prev);
+          // console.log(prev);
           if (prev > 93.5) {
-            console.log("width greater than 91.5");
+            // console.log("width greater than 91.5");
             setImageStyle({ opacity: "0.2", transition: "opacity 0.5s" });
           }
           return prev + 0.25;
@@ -263,8 +286,8 @@ export default function Home() {
   }, [scrollTop]);
 
   useEffect(() => {
-    console.log("Window size updated:");
-    console.log(windowSize);
+    // console.log("Window size updated:");
+    // console.log(windowSize);
     windowSizeRef.current = windowSize;
   }, [windowSize]);
 
@@ -287,13 +310,28 @@ export default function Home() {
     };
   }, []);
 
+  const getLeftImageIndex = (index) => {
+    console.log("middle is:" + index);
+    if (index + 1 < 3) {
+      console.log("so left is:" + (index - 1));
+      return index + 1;
+    } else {
+      return 0;
+    }
+  };
+
+  const getRightImageIndex = (index) => {};
+
   return (
     <div className={indexStyles.container}>
       <div className={indexStyles.sectionsWrapper} id="sections-wrapper">
         <section>
           <NavigationComponent />
           <div className={indexStyles.leftImage}>
-            {/* <div>{imagesMainSlider[currentLeftImageIndex].img}</div> */}
+            <div>{imagesMainSlider[currentLeftImageIndex].img}</div>
+          </div>
+          <div className={indexStyles.rightImage}>
+            <div>{imagesMainSlider[currentRightImageIndex].img}</div>
           </div>
           <div className={indexStyles.sectionOneImageContainer}>
             <div

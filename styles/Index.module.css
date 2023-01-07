@@ -130,6 +130,7 @@
   flex-grow: 5;
   justify-content: center;
   width: 100%;
+  z-index: 1;
 }
 
 .sectionOneImageContainer > div {
@@ -155,13 +156,17 @@
   bottom: 10em;
 }
 
+/* secondary images in top section of main page */
+
 .leftImage {
   position: absolute;
   left: 0px;
+  top: -15vh;
   display: flex;
   flex-grow: 5;
   justify-content: center;
   width: 100%;
+  display: none;
 }
 
 .leftImage > div {
@@ -173,6 +178,29 @@
   top: 45vh;
   position: absolute; /* parten of image must be relative for size to work*/
 }
+
+.rightImage {
+  position: absolute;
+  right: 300px;
+  top: 20vh;
+  display: flex;
+  flex-grow: 5;
+  justify-content: center;
+  /* width: 100%; */
+  display: none;
+}
+
+.rightImage > div {
+  width: 40vw;
+  max-width: 300px;
+  max-height: 400px;
+  height: 40vh;
+  left: 0px;
+  top: 30vh;
+  position: absolute; /* parten of image must be relative for size to work*/
+}
+
+/* end secondary images section */
 
 /* labels */
 .sectionOneLabel {
@@ -378,5 +406,26 @@
 
   .sliderNavigationRight {
     left: 450px;
+  }
+}
+
+@media (min-width: 1380px) and (min-height: 730px) {
+  .leftImage {
+    display: block;
+  }
+  .rightImage {
+    display: block;
+  }
+}
+
+@media (max-height: 900px) {
+  .leftImage > div {
+    max-width: 250px;
+  }
+  .rightImage > div {
+    width: 250px;
+  }
+  .rightImage {
+    right: 250px !important;
   }
 }

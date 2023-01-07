@@ -1,0 +1,19 @@
+.firstLine {
+  width: 40vw;
+  height: 1px;
+  background-color: var(--color-primary-action-accent-lighter);
+  position: absolute;
+  top: 80vh;
+  left: 0px;
+  z-index: 0;
+}
+
+.secondLine {
+  width: 70vw;
+  height: 1px;
+  background-color: var(--color-primary-action-accent-lighter);
+  position: absolute;
+  top: 90vh;
+  right: 0px;
+  z-index: 0;
+}
