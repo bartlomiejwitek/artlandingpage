@@ -296,6 +296,7 @@
 .sliderNavigationRight {
   position: relative;
   left: 500px;
+  z-index: 100;
   top: 47%;
 }
 
