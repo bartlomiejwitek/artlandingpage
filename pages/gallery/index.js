@@ -57,6 +57,45 @@ import PA170009 from "../../public/images/kwiaty/PA170009.png";
 import SLONECZNIKI from "../../public/images/kwiaty/SLONECZNIKI.JPG";
 import VVGMigdalowiec from "../../public/images/kwiaty/vvg_Kwitnacy_migdalowiec.jpg";
 import wrzos from "../../public/images/kwiaty/wrzos.jpg";
+//Import portrety
+import portret1 from "../../public/images/portrety/Portret1.JPG";
+import portret2 from "../../public/images/portrety/Portret2.JPG";
+import portret3 from "../../public/images/portrety/Portret3.JPG";
+import portret5 from "../../public/images/portrety/Portret5.JPG";
+import portret6 from "../../public/images/portrety/Portret6.JPG";
+import portret7 from "../../public/images/portrety/Portret7.JPG";
+import portret8 from "../../public/images/portrety/Portret8.JPG";
+import portret9 from "../../public/images/portrety/Portret9.JPG";
+import portret10 from "../../public/images/portrety/Portret10.JPG";
+import portret11 from "../../public/images/portrety/Portret11.JPG";
+import portret12 from "../../public/images/portrety/Portret12.JPG";
+import portret13 from "../../public/images/portrety/Portret13.JPG";
+import portret14 from "../../public/images/portrety/Portret14.JPG";
+import portret15 from "../../public/images/portrety/Portret15.JPG";
+import portret16 from "../../public/images/portrety/Portret16.JPG";
+import portret17 from "../../public/images/portrety/Portret17.JPG";
+//Import madonnyianioly
+import madonnyianioly1 from "../../public/images/madonnyianioly/madonnyianioly1.JPG";
+import madonnyianioly2 from "../../public/images/madonnyianioly/madonnyianioly2.JPG";
+import madonnyianioly3 from "../../public/images/madonnyianioly/madonnyianioly3.JPG";
+import madonnyianioly4 from "../../public/images/madonnyianioly/madonnyianioly4.JPG";
+import madonnyianioly5 from "../../public/images/madonnyianioly/madonnyianioly5.JPG";
+import madonnyianioly6 from "../../public/images/madonnyianioly/madonnyianioly6.JPG";
+import madonnyianioly7 from "../../public/images/madonnyianioly/madonnyianioly7.JPG";
+import madonnyianioly8 from "../../public/images/madonnyianioly/madonnyianioly8.JPG";
+import madonnyianioly9 from "../../public/images/madonnyianioly/madonnyianioly9.JPG";
+import madonnyianioly10 from "../../public/images/madonnyianioly/madonnyianioly10.JPG";
+import madonnyianioly11 from "../../public/images/madonnyianioly/madonnyianioly11.JPG";
+import madonnyianioly12 from "../../public/images/madonnyianioly/madonnyianioly12.JPG";
+import madonnyianioly14 from "../../public/images/madonnyianioly/madonnyianioly14.JPG";
+import madonnyianioly15 from "../../public/images/madonnyianioly/madonnyianioly15.JPG";
+import madonnyianioly16 from "../../public/images/madonnyianioly/madonnyianioly16.JPG";
+//Import duchgor
+import duchgor1 from "../../public/images/duchgor/duchgor1.JPG";
+import duchgor2 from "../../public/images/duchgor/duchgor2.JPG";
+import duchgor3 from "../../public/images/duchgor/duchgor3.JPG";
+import duchgor4 from "../../public/images/duchgor/duchgor4.JPG";
+import duchgor5 from "../../public/images/duchgor/duchgor5.JPG";
 
 export default function () {
   const router = useRouter();
@@ -64,9 +103,15 @@ export default function () {
   const pejzazeImagesRef = useRef([]);
   const kopieImagesRef = useRef([]);
   const kwiatyImagesRef = useRef([]);
+  const portretyImagesRef = useRef([]);
+  const madonnyianiolyImagesRef = useRef([]);
+  const duchgorImagesRef = useRef([]);
   const pejzazeImagesOverlayRef = useRef([]);
   const kwiatyImagesOverlayRef = useRef([]);
   const kopieImagesOverlayRef = useRef([]);
+  const portretyImagesOverlayRef = useRef([]);
+  const madonnyianiolyImagesOverlayRef = useRef([]);
+  const duchgorImagesOverlayRef = useRef([]);
   const [showZoomin, setShowZoomin] = useState(false);
   const [previousScroll, setPreviosScroll] = useState(0);
 
@@ -539,6 +584,408 @@ export default function () {
         ),
       },
     ],
+    [
+      {
+        alt: "Portret 1",
+        img: (
+          <Image
+            className={galleryStyls.item}
+            src={portret1}
+            alt="portret1"
+            layout="fill"
+          ></Image>
+        ),
+      },
+      {
+        alt: "Portret 2",
+        img: (
+          <Image
+            className={galleryStyls.item}
+            src={portret2}
+            alt="portret2"
+            layout="fill"
+          ></Image>
+        ),
+      },
+      {
+        alt: "Portret 3",
+        img: (
+          <Image
+            className={galleryStyls.item}
+            src={portret3}
+            alt="portret3"
+            layout="fill"
+          ></Image>
+        ),
+      },
+      {
+        alt: "Portret 5",
+        img: (
+          <Image
+            className={galleryStyls.item}
+            src={portret5}
+            alt="portret5"
+            layout="fill"
+          ></Image>
+        ),
+      },
+      {
+        alt: "Portret 6",
+        img: (
+          <Image
+            className={galleryStyls.item}
+            src={portret6}
+            alt="portret6"
+            layout="fill"
+          ></Image>
+        ),
+      },
+      {
+        alt: "Portret 7",
+        img: (
+          <Image
+            className={galleryStyls.item}
+            src={portret7}
+            alt="portret7"
+            layout="fill"
+          ></Image>
+        ),
+      },
+      {
+        alt: "Portret 8",
+        img: (
+          <Image
+            className={galleryStyls.item}
+            src={portret8}
+            alt="portret8"
+            layout="fill"
+          ></Image>
+        ),
+      },
+      {
+        alt: "Portret 9",
+        img: (
+          <Image
+            className={galleryStyls.item}
+            src={portret9}
+            alt="portret9"
+            layout="fill"
+          ></Image>
+        ),
+      },
+      {
+        alt: "Portret 10",
+        img: (
+          <Image
+            className={galleryStyls.item}
+            src={portret10}
+            alt="portret10"
+            layout="fill"
+          ></Image>
+        ),
+      },
+      {
+        alt: "Portret 11",
+        img: (
+          <Image
+            className={galleryStyls.item}
+            src={portret11}
+            alt="portret11"
+            layout="fill"
+          ></Image>
+        ),
+      },
+      {
+        alt: "Portret 12",
+        img: (
+          <Image
+            className={galleryStyls.item}
+            src={portret12}
+            alt="portret12"
+            layout="fill"
+          ></Image>
+        ),
+      },
+      {
+        alt: "Portret 13",
+        img: (
+          <Image
+            className={galleryStyls.item}
+            src={portret13}
+            alt="portret13"
+            layout="fill"
+          ></Image>
+        ),
+      },
+      {
+        alt: "Portret 14",
+        img: (
+          <Image
+            className={galleryStyls.item}
+            src={portret14}
+            alt="portret14"
+            layout="fill"
+          ></Image>
+        ),
+      },
+      {
+        alt: "Portret 15",
+        img: (
+          <Image
+            className={galleryStyls.item}
+            src={portret15}
+            alt="portret15"
+            layout="fill"
+          ></Image>
+        ),
+      },
+      {
+        alt: "Portret 16",
+        img: (
+          <Image
+            className={galleryStyls.item}
+            src={portret16}
+            alt="portret16"
+            layout="fill"
+          ></Image>
+        ),
+      },
+      {
+        alt: "Portret 17",
+        img: (
+          <Image
+            className={galleryStyls.item}
+            src={portret17}
+            alt="portret17"
+            layout="fill"
+          ></Image>
+        ),
+      },
+    ],
+    [
+      {
+        alt: "Madonny i Anioły 1",
+        img: (
+          <Image
+            className={galleryStyls.item}
+            src={madonnyianioly1}
+            alt="madonnyianioly1"
+            layout="fill"
+          ></Image>
+        ),
+      },
+      {
+        alt: "Madonny i Anioły 2",
+        img: (
+          <Image
+            className={galleryStyls.item}
+            src={madonnyianioly2}
+            alt="madonnyianioly2"
+            layout="fill"
+          ></Image>
+        ),
+      },
+      {
+        alt: "Madonny i Anioły 3",
+        img: (
+          <Image
+            className={galleryStyls.item}
+            src={madonnyianioly3}
+            alt="madonnyianioly3"
+            layout="fill"
+          ></Image>
+        ),
+      },
+      {
+        alt: "Madonny i Anioły 4",
+        img: (
+          <Image
+            className={galleryStyls.item}
+            src={madonnyianioly4}
+            alt="madonnyianioly4"
+            layout="fill"
+          ></Image>
+        ),
+      },
+      {
+        alt: "Madonny i Anioły 5",
+        img: (
+          <Image
+            className={galleryStyls.item}
+            src={madonnyianioly5}
+            alt="madonnyianioly5"
+            layout="fill"
+          ></Image>
+        ),
+      },
+      {
+        alt: "Madonny i Anioły 6",
+        img: (
+          <Image
+            className={galleryStyls.item}
+            src={madonnyianioly6}
+            alt="madonnyianioly6"
+            layout="fill"
+          ></Image>
+        ),
+      },
+      {
+        alt: "Madonny i Anioły 7",
+        img: (
+          <Image
+            className={galleryStyls.item}
+            src={madonnyianioly7}
+            alt="madonnyianioly7"
+            layout="fill"
+          ></Image>
+        ),
+      },
+      {
+        alt: "Madonny i Anioły 8",
+        img: (
+          <Image
+            className={galleryStyls.item}
+            src={madonnyianioly8}
+            alt="madonnyianioly8"
+            layout="fill"
+          ></Image>
+        ),
+      },
+      {
+        alt: "Madonny i Anioły 9",
+        img: (
+          <Image
+            className={galleryStyls.item}
+            src={madonnyianioly9}
+            alt="madonnyianioly9"
+            layout="fill"
+          ></Image>
+        ),
+      },
+      {
+        alt: "Madonny i Anioły 10",
+        img: (
+          <Image
+            className={galleryStyls.item}
+            src={madonnyianioly10}
+            alt="madonnyianioly10"
+            layout="fill"
+          ></Image>
+        ),
+      },
+      {
+        alt: "Madonny i Anioły 11",
+        img: (
+          <Image
+            className={galleryStyls.item}
+            src={madonnyianioly11}
+            alt="madonnyianioly11"
+            layout="fill"
+          ></Image>
+        ),
+      },
+      {
+        alt: "Madonny i Anioły 12",
+        img: (
+          <Image
+            className={galleryStyls.item}
+            src={madonnyianioly12}
+            alt="madonnyianioly12"
+            layout="fill"
+          ></Image>
+        ),
+      },
+      {
+        alt: "Madonny i Anioły 14",
+        img: (
+          <Image
+            className={galleryStyls.item}
+            src={madonnyianioly14}
+            alt="madonnyianioly14"
+            layout="fill"
+          ></Image>
+        ),
+      },
+      {
+        alt: "Madonny i Anioły 15",
+        img: (
+          <Image
+            className={galleryStyls.item}
+            src={madonnyianioly15}
+            alt="madonnyianioly15"
+            layout="fill"
+          ></Image>
+        ),
+      },
+      {
+        alt: "Madonny i Anioły 16",
+        img: (
+          <Image
+            className={galleryStyls.item}
+            src={madonnyianioly16}
+            alt="madonnyianioly16"
+            layout="fill"
+          ></Image>
+        ),
+      },
+    ],
+    [
+      {
+        alt: "Duch Gór 1",
+        img: (
+          <Image
+            className={galleryStyls.item}
+            src={duchgor1}
+            alt="duchgor1"
+            layout="fill"
+          ></Image>
+        ),
+      },
+      {
+        alt: "Duch Gór 2",
+        img: (
+          <Image
+            className={galleryStyls.item}
+            src={duchgor2}
+            alt="duchgor2"
+            layout="fill"
+          ></Image>
+        ),
+      },
+      {
+        alt: "Duch Gór 3",
+        img: (
+          <Image
+            className={galleryStyls.item}
+            src={duchgor3}
+            alt="duchgor3"
+            layout="fill"
+          ></Image>
+        ),
+      },
+      {
+        alt: "Duch Gór 4",
+        img: (
+          <Image
+            className={galleryStyls.item}
+            src={duchgor4}
+            alt="duchgor4"
+            layout="fill"
+          ></Image>
+        ),
+      },
+      {
+        alt: "Duch Gór 5",
+        img: (
+          <Image
+            className={galleryStyls.item}
+            src={duchgor5}
+            alt="duchgor5"
+            layout="fill"
+          ></Image>
+        ),
+      },
+    ],
   ];
 
   useEffect(() => {
@@ -668,8 +1115,32 @@ export default function () {
         )}
       </Gallery>
       <PageBreakComponent>Portrety</PageBreakComponent>
+      <Gallery>
+        {getElementsForGallery(
+          images[3],
+          3,
+          portretyImagesRef,
+          portretyImagesOverlayRef
+        )}
+      </Gallery>
       <PageBreakComponent>Madonny i anioły</PageBreakComponent>
+      <Gallery>
+        {getElementsForGallery(
+          images[4],
+          4,
+          madonnyianiolyImagesRef,
+          madonnyianiolyImagesOverlayRef
+        )}
+      </Gallery>
       <PageBreakComponent>Duch gór</PageBreakComponent>
+      <Gallery>
+        {getElementsForGallery(
+          images[5],
+          5,
+          duchgorImagesRef,
+          duchgorImagesOverlayRef
+        )}
+      </Gallery>
       <PageBreakComponent>Okiennice</PageBreakComponent>
       <PageBreakComponent>Współpraca z KPN</PageBreakComponent>
 
