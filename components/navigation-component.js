@@ -48,9 +48,9 @@ export default function NavigationComponent() {
           <li className={navStyles.navButton}>
             <Link href="/contact">Kontakt</Link>
           </li>
-          <li className={navStyles.navButton}>
+          {/* <li className={navStyles.navButton}>
             <Link href="/news">News</Link>
-          </li>
+          </li> */}
         </ul>
       </nav>
     </React.Fragment>

@@ -21,6 +21,7 @@ export default function SliderStatusComponent({
           <div
             className={SliderStatusComponentStyles.circle}
             onClick={() => handleCircleClick(index)}
+            key={index}
           >
             {index === currentImageIndex ? (
               <div className={SliderStatusComponentStyles.circleActive}></div>

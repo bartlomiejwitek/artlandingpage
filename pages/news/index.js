@@ -2,7 +2,7 @@ import NavigationComponent from "../../components/navigation-component";
 import newsStyles from "../../styles/news-component.module.css";
 import indexS3Styles from "../../styles/index_section3.module.css";
 
-export default function () {
+export default function News() {
   return (
     <div className={newsStyles.wrapper}>
       <NavigationComponent />

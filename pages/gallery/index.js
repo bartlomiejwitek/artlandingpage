@@ -97,7 +97,7 @@ import duchgor3 from "../../public/images/duchgor/duchgor3.JPG";
 import duchgor4 from "../../public/images/duchgor/duchgor4.JPG";
 import duchgor5 from "../../public/images/duchgor/duchgor5.JPG";
 
-export default function () {
+export default function GalleryWrapper() {
   const router = useRouter();
   const [imageStyle, setImageStyle] = useState({});
   const pejzazeImagesRef = useRef([]);
@@ -1055,7 +1055,7 @@ export default function () {
   ) => {
     return images.map((image, i) => {
       return (
-        <div>
+        <div key={i}>
           <span
             onMouseEnter={() => imageMouseEnter(i, imagesRef, imagesOverlayRef)}
             onMouseLeave={() => imageMouseLeave(i, imagesRef, imagesOverlayRef)}
