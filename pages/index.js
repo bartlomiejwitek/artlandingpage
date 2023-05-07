@@ -5,6 +5,8 @@ import indexStyles from "../styles/Index.module.css";
 import indexS2Styles from "../styles/Index_section2.module.css";
 import indexS3Styles from "../styles/index_section3.module.css";
 import szrenica from "../public/images/szrenica1.jpg";
+import duchgor from "../public/images/home/duch_gor.jpg";
+import goryczka from "../public/images/home/goryczka.jpg";
 import navStyles from "../styles/navbar.module.css";
 import kotly from "../public/images/kotly.jpg";
 import pies from "../public/images/pies.jpg";
@@ -55,41 +57,41 @@ export default function Home() {
     {
       img: (
         <Image
-          src={szrenica}
-          alt="Szrenica"
+          src={duchgor}
+          alt="Duch Gór"
           layout="fill"
           style={imageStyle}
           onLoad={smoothImageAnimation}
         ></Image>
       ),
-      textTop: "Szrenica",
-      textBottom: "Olej na płótnie",
+      textTop: "Duch Gór",
+      textBottom: "Akryl na łupku",
+    },
+    {
+      img: (
+        <Image
+          src={goryczka}
+          alt="Goryczka"
+          layout="fill"
+          style={imageStyle}
+          onLoad={smoothImageAnimation}
+        ></Image>
+      ),
+      textTop: "Goryczka Trojeściowa",
+      textBottom: "Akryl na desce",
     },
     {
       img: (
         <Image
           src={pies}
-          alt="Szrenica"
+          alt="Zapatrzony"
           layout="fill"
           style={imageStyle}
           onLoad={smoothImageAnimation}
         ></Image>
       ),
-      textTop: "Pejzaż",
-      textBottom: "<Technika>",
-    },
-    {
-      img: (
-        <Image
-          src={kotly}
-          alt="Szrenica"
-          layout="fill"
-          style={imageStyle}
-          onLoad={smoothImageAnimation}
-        ></Image>
-      ),
-      textTop: "Kotły",
-      textBottom: "<Technika>",
+      textTop: "Zapatrzony",
+      textBottom: "Akryl na płótnie",
     },
   ];
 
@@ -400,9 +402,9 @@ export default function Home() {
         </section>
         <section id="section-two">
           <p>
-            Śnieżne kotły latem. Aenean sed pharetra lacus, vitae pellentesque
-            est. Integer augue tellus, pharetra non ultrices at, hendrerit eu
-            leo.{" "}
+          Witaj w moim świecie, rozgość się i rozejrzyj. Może zachwyci Cię to, co
+          mnie zachwyca: przyroda, historia regionu, malarstwa i nie tylko.
+          Niedługo kolejne zdjęcia prac{" "}
           </p>
           <div className={indexStyles.sectionOneImageContainer}>
             <div>
