@@ -61,7 +61,6 @@ import wrzos from "../../public/images/kwiaty/wrzos.jpg";
 import portret1 from "../../public/images/portrety/Portret1.JPG";
 import portret2 from "../../public/images/portrety/Portret2.JPG";
 import portret3 from "../../public/images/portrety/Portret3.JPG";
-import portret5 from "../../public/images/portrety/Portret5.JPG";
 import portret6 from "../../public/images/portrety/Portret6.JPG";
 import portret7 from "../../public/images/portrety/Portret7.JPG";
 import portret8 from "../../public/images/portrety/Portret8.JPG";
@@ -70,9 +69,6 @@ import portret10 from "../../public/images/portrety/Portret10.JPG";
 import portret11 from "../../public/images/portrety/Portret11.JPG";
 import portret12 from "../../public/images/portrety/Portret12.JPG";
 import portret13 from "../../public/images/portrety/Portret13.JPG";
-import portret14 from "../../public/images/portrety/Portret14.JPG";
-import portret15 from "../../public/images/portrety/Portret15.JPG";
-import portret16 from "../../public/images/portrety/Portret16.JPG";
 import portret17 from "../../public/images/portrety/Portret17.JPG";
 //Import madonnyianioly
 import madonnyianioly1 from "../../public/images/madonnyianioly/madonnyianioly1.JPG";
@@ -96,6 +92,22 @@ import duchgor2 from "../../public/images/duchgor/duchgor2.JPG";
 import duchgor3 from "../../public/images/duchgor/duchgor3.JPG";
 import duchgor4 from "../../public/images/duchgor/duchgor4.JPG";
 import duchgor5 from "../../public/images/duchgor/duchgor5.JPG";
+//Import okiennice
+import okiennica1 from "../../public/images/okiennice/okiennica1.jpg"
+import okiennica2 from "../../public/images/okiennice/okiennica2.jpg"
+import okiennica3 from "../../public/images/okiennice/okiennica3.jpg"
+//Import news
+import bialaDolina from "../../public/images/news/Biala_Dolina_akryl_na_plotnie.jpg";
+import dziewanny from "../../public/images/news/Dziewanny_i_sniezne_Kotly_akryl_na_plotnie.jpg"
+import naparstnica from "../../public/images/news/naparstnica_akryl_na_desce.jpg"
+import niebieskaPanorama from "../../public/images/news/niebieska_panorama_karkonoszy_akryl_na_desce.jpg"
+import niebieski from "../../public/images/news/Niebieski_akryl_na_plotnie.jpg"
+import panoramaTrawy from "../../public/images/news/Panorama_karkonoszy_trawy_akryl_na_desce.jpg"
+import promien from "../../public/images/news/Promien_akryl_na_lupku.jpg"
+import szrenicaWeMgle from "../../public/images/news/szrenica_we_mgle_akryl_na_plotnie.jpg"
+import szrenicaZProfilu from "../../public/images/news/szrenica_z_profilu_akryl_na_desce.jpg"
+import wschodNadIzera from "../../public/images/news/wschod_slonca_nad_izera_akryl_na_plotnie.jpg"
+
 
 export default function GalleryWrapper() {
   const router = useRouter();
@@ -112,13 +124,17 @@ export default function GalleryWrapper() {
   const portretyImagesOverlayRef = useRef([]);
   const madonnyianiolyImagesOverlayRef = useRef([]);
   const duchgorImagesOverlayRef = useRef([]);
+  const okienniceImagesRef = useRef([]);
+  const okienniceImagesOverlayRef = useRef([]);
+  const newsImagesRef = useRef([]);
+  const newsImagesOverlayRef = useRef([]);
   const [showZoomin, setShowZoomin] = useState(false);
   const [previousScroll, setPreviosScroll] = useState(0);
 
   const images = [
     [
       {
-        alt: "Kotły",
+        alt: "Śnieżne kotły latem - akryl na płótnie",
         img: (
           <Image
             className={galleryStyls.item}
@@ -129,7 +145,7 @@ export default function GalleryWrapper() {
         ),
       },
       {
-        alt: "Szrenica",
+        alt: "Szrenica - olej na płótnie",
         img: (
           <Image
             className={galleryStyls.item}
@@ -140,7 +156,7 @@ export default function GalleryWrapper() {
         ),
       },
       {
-        alt: "Chata",
+        alt: "Chata - Osiedle Huty - akryl na płótnie",
         img: (
           <Image
             className={galleryStyls.item}
@@ -151,7 +167,7 @@ export default function GalleryWrapper() {
         ),
       },
       {
-        alt: "IMG_0190.JPG",
+        alt: "Widok z Wysokiego Kamienia (ciemny las) - akryl na płótnie",
         img: (
           <Image
             className={galleryStyls.item}
@@ -162,7 +178,7 @@ export default function GalleryWrapper() {
         ),
       },
       {
-        alt: "img_0328.jpg",
+        alt: "Widok z Wysokiego Kamienia (jagodziny) - akryl na płótnie",
         img: (
           <Image
             className={galleryStyls.item}
@@ -173,7 +189,7 @@ export default function GalleryWrapper() {
         ),
       },
       {
-        alt: "img_5836.jpg",
+        alt: "Sarenka i Szrenica - akryl na łupku",
         img: (
           <Image
             className={galleryStyls.item}
@@ -184,18 +200,7 @@ export default function GalleryWrapper() {
         ),
       },
       {
-        alt: "img_5843.jpg",
-        img: (
-          <Image
-            className={galleryStyls.item}
-            src={IMG_5843}
-            alt="IMG_5843.jpg"
-            layout="fill"
-          ></Image>
-        ),
-      },
-      {
-        alt: "img_6020.jpg",
+        alt: "Panorama Karkonoszy(koń) - olej na desce",
         img: (
           <Image
             className={galleryStyls.item}
@@ -206,7 +211,7 @@ export default function GalleryWrapper() {
         ),
       },
       {
-        alt: "img_6734.jpg",
+        alt: "Widok z Wysokiego Kamienia(kłosy) - akryl na płótnie",
         img: (
           <Image
             className={galleryStyls.item}
@@ -217,7 +222,7 @@ export default function GalleryWrapper() {
         ),
       },
       {
-        alt: "krowy1.jpg",
+        alt: "Panorama Krakonoszy(krowy) - olej na desce",
         img: (
           <Image
             className={galleryStyls.item}
@@ -228,7 +233,7 @@ export default function GalleryWrapper() {
         ),
       },
       {
-        alt: "P1080017.JPG",
+        alt: "Chata pod Szrenicą - akryl na płótnie",
         img: (
           <Image
             className={galleryStyls.item}
@@ -239,7 +244,7 @@ export default function GalleryWrapper() {
         ),
       },
       {
-        alt: "PB1700014.JPG",
+        alt: "Chata pod Wysokim Kamieniem- akryl na płótnie",
         img: (
           <Image
             className={galleryStyls.item}
@@ -250,7 +255,7 @@ export default function GalleryWrapper() {
         ),
       },
       {
-        alt: "IMG_5931.JPG",
+        alt: "Widok z Wysokiego Kamienia( łąki izerskie)- akryl na płótnie",
         img: (
           <Image
             className={galleryStyls.item}
@@ -261,7 +266,7 @@ export default function GalleryWrapper() {
         ),
       },
       {
-        alt: "IMG_5933.JPG",
+        alt: "Widok z Wysokiego Kamienia(jagodziny2) - akryl na płótnie",
         img: (
           <Image
             className={galleryStyls.item}
@@ -274,7 +279,7 @@ export default function GalleryWrapper() {
     ],
     [
       {
-        alt: "Caspar David Friedrich - Monk By The Sea",
+        alt: "Caspar David Friedrich - Monk By The Sea - akryl na płótnie",
         img: (
           <Image
             className={galleryStyls.item}
@@ -285,7 +290,7 @@ export default function GalleryWrapper() {
         ),
       },
       {
-        alt: "Jabłka",
+        alt: "Jabłka - Willys - olej na płótnie",
         img: (
           <Image
             className={galleryStyls.item}
@@ -296,7 +301,7 @@ export default function GalleryWrapper() {
         ),
       },
       {
-        alt: "Andriens van den Berg - Preparing the evening meal",
+        alt: "Andriens van den Berg - Preparing the evening meal - olej na płótnie",
         img: (
           <Image
             className={galleryStyls.item}
@@ -307,7 +312,7 @@ export default function GalleryWrapper() {
         ),
       },
       {
-        alt: "Hugo Engl - Familien Szene",
+        alt: "Hugo Engl - Familien Szene - olej na płótnie",
         img: (
           <Image
             className={galleryStyls.item}
@@ -318,18 +323,18 @@ export default function GalleryWrapper() {
         ),
       },
       {
-        alt: "Francisco Miralles - Afternoon Tea",
+        alt: "Francisco Miralles - Afternoon Tea - olej na płótnie",
         img: (
           <Image
             className={galleryStyls.item}
             src={AfternoonTea}
-            alt="Francisco Miralles - Afternoon Tea"
+            alt="Francisco Miralles - Afternoon Tea - olej na płótnie"
             layout="fill"
           ></Image>
         ),
       },
       {
-        alt: "Carl Wilhelm Holsoe - Breakfast",
+        alt: "Carl Wilhelm Holsoe - Breakfast - olej na płótnie",
         img: (
           <Image
             className={galleryStyls.item}
@@ -340,7 +345,7 @@ export default function GalleryWrapper() {
         ),
       },
       {
-        alt: "Nicolas Lancret - A Lady in a Garden Taking Coffe with Some Children",
+        alt: "Nicolas Lancret - A Lady in a Garden Taking Coffe with Some Children - olej na płótnie",
         img: (
           <Image
             className={galleryStyls.item}
@@ -351,7 +356,7 @@ export default function GalleryWrapper() {
         ),
       },
       {
-        alt: "Pieter de Hooch - Mother's Duty",
+        alt: "Pieter de Hooch - Mother's Duty - olej na desce",
         img: (
           <Image
             className={galleryStyls.item}
@@ -362,7 +367,7 @@ export default function GalleryWrapper() {
         ),
       },
       {
-        alt: "Salvador Dali - Bryczka",
+        alt: "Salvador Dali - Widmo Bryczki - olej na płótnie",
         img: (
           <Image
             className={galleryStyls.item}
@@ -373,7 +378,7 @@ export default function GalleryWrapper() {
         ),
       },
       {
-        alt: "Salvador Dali - Chabry",
+        alt: "Salvador Dali - Chabry - olej na płótnie",
         img: (
           <Image
             className={galleryStyls.item}
@@ -384,7 +389,7 @@ export default function GalleryWrapper() {
         ),
       },
       {
-        alt: "Salvador Dali",
+        alt: "Salvador Dali - Pejzaż metafizyczny - olej na płótnie",
         img: (
           <Image
             className={galleryStyls.item}
@@ -395,7 +400,7 @@ export default function GalleryWrapper() {
         ),
       },
       {
-        alt: "Salvador Dali",
+        alt: "Salvador Dali - Ja, w wieku 6 lat, gdy sądziłem, że jestem dziewczynką, próbuję unieść taflę morza, by ujrzeć psa śpiącego w cieniu wód - olej na płótnie",
         img: (
           <Image
             className={galleryStyls.item}
@@ -406,7 +411,7 @@ export default function GalleryWrapper() {
         ),
       },
       {
-        alt: "Salvador Dali",
+        alt: "Salvador Dali - Słonie - olej na płótnie",
         img: (
           <Image
             className={galleryStyls.item}
@@ -417,7 +422,7 @@ export default function GalleryWrapper() {
         ),
       },
       {
-        alt: "Wlastimil Hofman - Chłopiec ze Szczygłem",
+        alt: "Wlastimil Hofman - Chłopiec ze Szczygłem - akryl na płótnie",
         img: (
           <Image
             className={galleryStyls.item}
@@ -428,7 +433,7 @@ export default function GalleryWrapper() {
         ),
       },
       {
-        alt: "Wlastimil Hofman - Testament Mojej Sztuki",
+        alt: "Wlastimil Hofman - Testament Mojej Sztuki - akryl na płótnie",
         img: (
           <Image
             className={galleryStyls.item}
@@ -438,98 +443,8 @@ export default function GalleryWrapper() {
           ></Image>
         ),
       },
-    ],
-    [
       {
-        alt: "_20200917_122007.JPG",
-        img: (
-          <Image
-            className={galleryStyls.item}
-            src={_20200917_122007}
-            alt="20200917_122007.JPG"
-            layout="fill"
-          ></Image>
-        ),
-      },
-      {
-        alt: "_20200917_122020.JPG",
-        img: (
-          <Image
-            className={galleryStyls.item}
-            src={_20200917_122020}
-            alt="20200917_122020.JPG"
-            layout="fill"
-          ></Image>
-        ),
-      },
-      {
-        alt: "GORYCZKA_TROJESCIOWA.JPG",
-        img: (
-          <Image
-            className={galleryStyls.item}
-            src={GORYCZKA_TROJESCIOWA}
-            alt="GORYCZKA_TROJESCIOWA.JPG"
-            layout="fill"
-          ></Image>
-        ),
-      },
-      {
-        alt: "IMG_3408.JPG",
-        img: (
-          <Image
-            className={galleryStyls.item}
-            src={IMG_3408}
-            alt="IMG_3408.JPG"
-            layout="fill"
-          ></Image>
-        ),
-      },
-      {
-        alt: "IMG_3585.JPG",
-        img: (
-          <Image
-            className={galleryStyls.item}
-            src={IMG_3585}
-            alt="IMG_3585.JPG"
-            layout="fill"
-          ></Image>
-        ),
-      },
-      {
-        alt: "IMG_3587.JPG",
-        img: (
-          <Image
-            className={galleryStyls.item}
-            src={IMG_3587}
-            alt="IMG_3587.JPG"
-            layout="fill"
-          ></Image>
-        ),
-      },
-      {
-        alt: "IMG_9625.JPG",
-        img: (
-          <Image
-            className={galleryStyls.item}
-            src={IMG_9625}
-            alt="IMG_9625.JPG"
-            layout="fill"
-          ></Image>
-        ),
-      },
-      {
-        alt: "konwalia.JPG",
-        img: (
-          <Image
-            className={galleryStyls.item}
-            src={konwalia}
-            alt="konwalia.JPG"
-            layout="fill"
-          ></Image>
-        ),
-      },
-      {
-        alt: "Monet.JPG",
+        alt: "Claude Monet - Wazon pełen kwiatów- olej na desce",
         img: (
           <Image
             className={galleryStyls.item}
@@ -540,18 +455,108 @@ export default function GalleryWrapper() {
         ),
       },
       {
-        alt: "PA170009.JPG",
+        alt: "Vincent van Gogh - Kwitnący Migdałowiec - olej na desce",
         img: (
           <Image
             className={galleryStyls.item}
-            src={PA170009}
-            alt="PA170009.JPG"
+            src={VVGMigdalowiec}
+            alt="Vincent Vang Gogh - Migdałowiec"
+            layout="fill"
+          ></Image>
+        ),
+      },
+    ],
+    [
+      {
+        alt: "Dzwonek karkonoski - Śnieżne Kotły 1 - akryl n łupku",
+        img: (
+          <Image
+            className={galleryStyls.item}
+            src={_20200917_122007}
+            alt="20200917_122007.JPG"
             layout="fill"
           ></Image>
         ),
       },
       {
-        alt: "SLONECZNIKI.JPG",
+        alt: "Goryczka trojeściowa 1 - akryl na łupku",
+        img: (
+          <Image
+            className={galleryStyls.item}
+            src={_20200917_122020}
+            alt="20200917_122020.JPG"
+            layout="fill"
+          ></Image>
+        ),
+      },
+      {
+        alt: "Goryczka trojeściowa 2 - akryl na łupku",
+        img: (
+          <Image
+            className={galleryStyls.item}
+            src={GORYCZKA_TROJESCIOWA}
+            alt="GORYCZKA_TROJESCIOWA.JPG"
+            layout="fill"
+          ></Image>
+        ),
+      },
+      {
+        alt: "Czosnek Siatkowaty - Śnieże Kotły - akryl na łupku",
+        img: (
+          <Image
+            className={galleryStyls.item}
+            src={IMG_3408}
+            alt="IMG_3408.JPG"
+            layout="fill"
+          ></Image>
+        ),
+      },
+      {
+        alt: "Skalnica Naprzeciwlistna - Śnieżne Kotły - akryl na łuku",
+        img: (
+          <Image
+            className={galleryStyls.item}
+            src={IMG_3585}
+            alt="IMG_3585.JPG"
+            layout="fill"
+          ></Image>
+        ),
+      },
+      {
+        alt: "Dzwonek karkonoski - Śnieżne Kotły 2 - akryl na łupku",
+        img: (
+          <Image
+            className={galleryStyls.item}
+            src={IMG_3587}
+            alt="IMG_3587.JPG"
+            layout="fill"
+          ></Image>
+        ),
+      },
+      {
+        alt: "Tryptyk kwiatowy(od lewej): Chabry i margaretki, Naparstnica, Malwa - akryl na desce",
+        img: (
+          <Image
+            className={galleryStyls.item}
+            src={IMG_9625}
+            alt="IMG_9625.JPG"
+            layout="fill"
+          ></Image>
+        ),
+      },
+      {
+        alt: "Niezapominajki - olej na desce",
+        img: (
+          <Image
+            className={galleryStyls.item}
+            src={konwalia}
+            alt="Niezapominajki - olej na desce"
+            layout="fill"
+          ></Image>
+        ),
+      },
+      {
+        alt: "Słoneczniki - akryl na płótnie",
         img: (
           <Image
             className={galleryStyls.item}
@@ -562,18 +567,7 @@ export default function GalleryWrapper() {
         ),
       },
       {
-        alt: "Vincent Vang Gogh - Migdałowiec",
-        img: (
-          <Image
-            className={galleryStyls.item}
-            src={VVGMigdalowiec}
-            alt="Vincent Vang Gogh - Migdałowiec"
-            layout="fill"
-          ></Image>
-        ),
-      },
-      {
-        alt: "wrzos",
+        alt: "Wrzosy - olej na desce",
         img: (
           <Image
             className={galleryStyls.item}
@@ -586,18 +580,7 @@ export default function GalleryWrapper() {
     ],
     [
       {
-        alt: "Portret 1",
-        img: (
-          <Image
-            className={galleryStyls.item}
-            src={portret1}
-            alt="portret1"
-            layout="fill"
-          ></Image>
-        ),
-      },
-      {
-        alt: "Portret 2",
+        alt: "Dama - akryl na płótnie",
         img: (
           <Image
             className={galleryStyls.item}
@@ -608,7 +591,7 @@ export default function GalleryWrapper() {
         ),
       },
       {
-        alt: "Portret 3",
+        alt: "Dziewczyna - akryl na płótnie",
         img: (
           <Image
             className={galleryStyls.item}
@@ -619,18 +602,7 @@ export default function GalleryWrapper() {
         ),
       },
       {
-        alt: "Portret 5",
-        img: (
-          <Image
-            className={galleryStyls.item}
-            src={portret5}
-            alt="portret5"
-            layout="fill"
-          ></Image>
-        ),
-      },
-      {
-        alt: "Portret 6",
+        alt: "Zbliżenie na twarz - Dama - akryl na płótnie",
         img: (
           <Image
             className={galleryStyls.item}
@@ -641,7 +613,7 @@ export default function GalleryWrapper() {
         ),
       },
       {
-        alt: "Portret 7",
+        alt: "Dziewczynka z czerwoną kokardą - akryl na płótnie",
         img: (
           <Image
             className={galleryStyls.item}
@@ -652,7 +624,7 @@ export default function GalleryWrapper() {
         ),
       },
       {
-        alt: "Portret 8",
+        alt: "Dziewczynka i amarylis - akryl na płótnie",
         img: (
           <Image
             className={galleryStyls.item}
@@ -663,7 +635,7 @@ export default function GalleryWrapper() {
         ),
       },
       {
-        alt: "Portret 9",
+        alt: "Marcelka - akryl na desce",
         img: (
           <Image
             className={galleryStyls.item}
@@ -674,7 +646,7 @@ export default function GalleryWrapper() {
         ),
       },
       {
-        alt: "Portret 10",
+        alt: "Mikołaj - olej na płótnie",
         img: (
           <Image
             className={galleryStyls.item}
@@ -685,7 +657,7 @@ export default function GalleryWrapper() {
         ),
       },
       {
-        alt: "Portret 11",
+        alt: "Dziewczynka z konwaliami - akryl na desce",
         img: (
           <Image
             className={galleryStyls.item}
@@ -696,7 +668,7 @@ export default function GalleryWrapper() {
         ),
       },
       {
-        alt: "Portret 12",
+        alt: "Mama i córka - olej na płótnie",
         img: (
           <Image
             className={galleryStyls.item}
@@ -707,7 +679,7 @@ export default function GalleryWrapper() {
         ),
       },
       {
-        alt: "Portret 13",
+        alt: "Tymon- akryl na płótnie",
         img: (
           <Image
             className={galleryStyls.item}
@@ -718,40 +690,7 @@ export default function GalleryWrapper() {
         ),
       },
       {
-        alt: "Portret 14",
-        img: (
-          <Image
-            className={galleryStyls.item}
-            src={portret14}
-            alt="portret14"
-            layout="fill"
-          ></Image>
-        ),
-      },
-      {
-        alt: "Portret 15",
-        img: (
-          <Image
-            className={galleryStyls.item}
-            src={portret15}
-            alt="portret15"
-            layout="fill"
-          ></Image>
-        ),
-      },
-      {
-        alt: "Portret 16",
-        img: (
-          <Image
-            className={galleryStyls.item}
-            src={portret16}
-            alt="portret16"
-            layout="fill"
-          ></Image>
-        ),
-      },
-      {
-        alt: "Portret 17",
+        alt: "Piłsudski - ołówek i węgiel na kartonie",
         img: (
           <Image
             className={galleryStyls.item}
@@ -764,7 +703,7 @@ export default function GalleryWrapper() {
     ],
     [
       {
-        alt: "Madonny i Anioły 1",
+        alt: "Anioł w niebieskiej sukni - akryl na łupku",
         img: (
           <Image
             className={galleryStyls.item}
@@ -775,7 +714,7 @@ export default function GalleryWrapper() {
         ),
       },
       {
-        alt: "Madonny i Anioły 2",
+        alt: "Anioł w bieli - akryl na desce",
         img: (
           <Image
             className={galleryStyls.item}
@@ -786,18 +725,7 @@ export default function GalleryWrapper() {
         ),
       },
       {
-        alt: "Madonny i Anioły 3",
-        img: (
-          <Image
-            className={galleryStyls.item}
-            src={madonnyianioly3}
-            alt="madonnyianioly3"
-            layout="fill"
-          ></Image>
-        ),
-      },
-      {
-        alt: "Madonny i Anioły 4",
+        alt: "Anioł złotowłosy 1 - akryl na łupku",
         img: (
           <Image
             className={galleryStyls.item}
@@ -808,7 +736,7 @@ export default function GalleryWrapper() {
         ),
       },
       {
-        alt: "Madonny i Anioły 5",
+        alt: "Anioł w błękicie - akryl na łupku",
         img: (
           <Image
             className={galleryStyls.item}
@@ -819,7 +747,7 @@ export default function GalleryWrapper() {
         ),
       },
       {
-        alt: "Madonny i Anioły 6",
+        alt: "Madonna w sepii - akryl na łupku",
         img: (
           <Image
             className={galleryStyls.item}
@@ -830,7 +758,7 @@ export default function GalleryWrapper() {
         ),
       },
       {
-        alt: "Madonny i Anioły 7",
+        alt: "Anioł uśmiechnięty - akryl na łupku",
         img: (
           <Image
             className={galleryStyls.item}
@@ -841,7 +769,7 @@ export default function GalleryWrapper() {
         ),
       },
       {
-        alt: "Madonny i Anioły 8",
+        alt: "Anioł złotowłosy 2 - akryl na łupku",
         img: (
           <Image
             className={galleryStyls.item}
@@ -852,7 +780,7 @@ export default function GalleryWrapper() {
         ),
       },
       {
-        alt: "Madonny i Anioły 9",
+        alt: "Akt, popiersie - akryl na łupku",
         img: (
           <Image
             className={galleryStyls.item}
@@ -863,7 +791,7 @@ export default function GalleryWrapper() {
         ),
       },
       {
-        alt: "Madonny i Anioły 10",
+        alt: "Madonna w rumieńcach - akryl na łupku",
         img: (
           <Image
             className={galleryStyls.item}
@@ -874,7 +802,7 @@ export default function GalleryWrapper() {
         ),
       },
       {
-        alt: "Madonny i Anioły 11",
+        alt: "Madonna fioletowa - akryl na łupku",
         img: (
           <Image
             className={galleryStyls.item}
@@ -885,7 +813,7 @@ export default function GalleryWrapper() {
         ),
       },
       {
-        alt: "Madonny i Anioły 12",
+        alt: " Madonna w tiulu - akryl na łupku",
         img: (
           <Image
             className={galleryStyls.item}
@@ -896,7 +824,7 @@ export default function GalleryWrapper() {
         ),
       },
       {
-        alt: "Madonny i Anioły 14",
+        alt: "Anioł - akryl na desce",
         img: (
           <Image
             className={galleryStyls.item}
@@ -907,7 +835,7 @@ export default function GalleryWrapper() {
         ),
       },
       {
-        alt: "Madonny i Anioły 15",
+        alt: "Anioł z kwiatem lilii - olej na metalu",
         img: (
           <Image
             className={galleryStyls.item}
@@ -918,7 +846,7 @@ export default function GalleryWrapper() {
         ),
       },
       {
-        alt: "Madonny i Anioły 16",
+        alt: "Anioł z dzbanem - akryl na łupku",
         img: (
           <Image
             className={galleryStyls.item}
@@ -928,10 +856,21 @@ export default function GalleryWrapper() {
           ></Image>
         ),
       },
+      {
+        alt: "Anioł ze Szrenicą w tle - akryl na łupku",
+        img: (
+          <Image
+            className={galleryStyls.item}
+            src={IMG_5843}
+            alt="IMG_5843.jpg"
+            layout="fill"
+          ></Image>
+        ),
+      },
     ],
     [
       {
-        alt: "Duch Gór 1",
+        alt: " Duch gór - wg. obrazu Moritza von Schwinda - akryl na łupku - paprocie",
         img: (
           <Image
             className={galleryStyls.item}
@@ -942,7 +881,7 @@ export default function GalleryWrapper() {
         ),
       },
       {
-        alt: "Duch Gór 2",
+        alt: "Duch gór - wg. obrazu Moritza von Schwinda - akryl na łupku - w sepii",
         img: (
           <Image
             className={galleryStyls.item}
@@ -953,7 +892,7 @@ export default function GalleryWrapper() {
         ),
       },
       {
-        alt: "Duch Gór 3",
+        alt: "Duch gór - wg. obrazu Moritza von Schwinda - akryl na desce - muchomory",
         img: (
           <Image
             className={galleryStyls.item}
@@ -964,7 +903,7 @@ export default function GalleryWrapper() {
         ),
       },
       {
-        alt: "Duch Gór 4",
+        alt: "Duch Gór na wietrze - akryl na łupku",
         img: (
           <Image
             className={galleryStyls.item}
@@ -975,7 +914,7 @@ export default function GalleryWrapper() {
         ),
       },
       {
-        alt: "Duch Gór 5",
+        alt: "Duch gór z kosturem - akryl na łupku",
         img: (
           <Image
             className={galleryStyls.item}
@@ -986,6 +925,153 @@ export default function GalleryWrapper() {
         ),
       },
     ],
+    [
+      {
+        alt: "Okiennica1",
+        img: (
+          <Image
+            className={galleryStyls.item}
+            src={okiennica1}
+            alt="okiennica1"
+            layout="fill"
+          ></Image>
+        ),
+      },
+      {
+        alt: "Okiennica2",
+        img: (
+          <Image
+            className={galleryStyls.item}
+            src={okiennica2}
+            alt="okiennica2"
+            layout="fill"
+          ></Image>
+        ),
+      },
+      {
+        alt: "Okiennica3",
+        img: (
+          <Image
+            className={galleryStyls.item}
+            src={okiennica3}
+            alt="okiennica3"
+            layout="fill"
+          ></Image>
+        ),
+      },
+    ],
+    [
+      {
+        alt: "Biała Dolina - akryl na płótnie",
+        img: (
+          <Image
+            className={galleryStyls.item}
+            src={bialaDolina}
+            alt="Biała Dolina - akryl na płótnie"
+            layout="fill"
+          ></Image>
+        ),
+      },
+      {
+        alt: "Dziewanny i Śnieżne Kotły - akryl na płótnie",
+        img: (
+          <Image
+            className={galleryStyls.item}
+            src={dziewanny}
+            alt="Dziewanny i Śnieżne Kotły - akryl na płótnie"
+            layout="fill"
+          ></Image>
+        ),
+      },
+      {
+        alt: "Naparstnica - akryl na desce",
+        img: (
+          <Image
+            className={galleryStyls.item}
+            src={naparstnica}
+            alt="Naparstnica - akryl na desce"
+            layout="fill"
+          ></Image>
+        ),
+      },
+      {
+        alt: "Niebieska panorama Karkonoszy - akryl na desce",
+        img: (
+          <Image
+            className={galleryStyls.item}
+            src={niebieskaPanorama}
+            alt="Niebieska panorama Karkonoszy - akryl na desce"
+            layout="fill"
+          ></Image>
+        ),
+      },
+      {
+        alt: "Niebieski - akryl na płótnie",
+        img: (
+          <Image
+            className={galleryStyls.item}
+            src={niebieski}
+            alt="Niebieski - akryl na płótnie"
+            layout="fill"
+          ></Image>
+        ),
+      },
+      {
+        alt: "Panorama Karkonoszy Trawy - akryl na desce",
+        img: (
+          <Image
+            className={galleryStyls.item}
+            src={panoramaTrawy}
+            alt="Panorama Karkonoszy Trawy - akryl na desce"
+            layout="fill"
+          ></Image>
+        ),
+      },
+      {
+        alt: "Promień - akryl na łupku",
+        img: (
+          <Image
+            className={galleryStyls.item}
+            src={promien}
+            alt="Promień - akryl na łupku"
+            layout="fill"
+          ></Image>
+        ),
+      },
+      {
+        alt: "Szrenica we mgle - akryl na płótnie",
+        img: (
+          <Image
+            className={galleryStyls.item}
+            src={szrenicaWeMgle}
+            alt="Szrenica we mgle - akryl na płótnie"
+            layout="fill"
+          ></Image>
+        ),
+      },
+      {
+        alt: "Szrenica z profilu - akryl na desce",
+        img: (
+          <Image
+            className={galleryStyls.item}
+            src={szrenicaZProfilu}
+            alt="Szrenica z profilu - akryl na desce"
+            layout="fill"
+          ></Image>
+        ),
+      },
+      {
+        alt: "Wschód słońca nad Izerą - akryl na płótnie",
+        img: (
+          <Image
+            className={galleryStyls.item}
+            src={wschodNadIzera}
+            alt="Wschód słońca nad Izerą - akryl na płótnie"
+            layout="fill"
+          ></Image>
+        ),
+      },
+    ]
   ];
 
   useEffect(() => {
@@ -1087,6 +1173,15 @@ export default function GalleryWrapper() {
   return (
     <div className={galleryStyls.wrapper}>
       <NavigationComponent />
+      <PageBreakComponent>News</PageBreakComponent>
+      <Gallery>
+        {getElementsForGallery(
+          images[7],
+          7,
+          newsImagesRef,
+          newsImagesOverlayRef
+        )}
+      </Gallery>
       <PageBreakComponent>Pejzaże</PageBreakComponent>
       <Gallery>
         {getElementsForGallery(
@@ -1142,7 +1237,15 @@ export default function GalleryWrapper() {
         )}
       </Gallery>
       <PageBreakComponent>Okiennice</PageBreakComponent>
-      <PageBreakComponent>Współpraca z KPN</PageBreakComponent>
+      <Gallery>
+        {getElementsForGallery(
+          images[6],
+          6,
+          okienniceImagesRef,
+          okienniceImagesOverlayRef
+        )}
+      </Gallery>
+      {/* <PageBreakComponent>Współpraca z KPN</PageBreakComponent> */}
 
       {showZoomin !== false ? (
         <ZoominComponent

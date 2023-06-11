@@ -12,7 +12,7 @@ export default function ContactComponent() {
       <div className={contactStyles.body}>
         <div className={contactStyles.divider}></div>
         Wszelkie pytania proszę kierować pod adres e-mail:{" "}
-        <a href="mailto:abcdefg@example.com">abcdefg@example.com</a>
+        <a href="mailto:"></a>
         <div className={contactStyles.imageWrapper}>
           <Image
             className={galleryStyls.item}

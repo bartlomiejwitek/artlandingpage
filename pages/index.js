@@ -326,6 +326,7 @@ export default function Home() {
 
   return (
     <div className={indexStyles.container}>
+      <div style={{backgroundColor: "red", position: "sticky", fontSize: "32px", color: "white", textAlign: "center"}}> STRONA W BUDOWIE </div>
       <div className={indexStyles.sectionsWrapper} id="sections-wrapper">
         <section>
           <NavigationComponent />

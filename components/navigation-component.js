@@ -9,13 +9,13 @@ export default function NavigationComponent() {
       <header className={navStyles.header}>
         <h1>Monika Krakowska Art</h1>
         <div className={navStyles.telephone}>
-          <Image
+          {/* <Image
             src="/phone-solid.svg"
             height={15}
             width={15}
             className={navStyles.telephoneIcon}
-          />
-          <span>32 123 44 55</span>
+          /> */}
+          <span>tubedzieemail @ test . com</span>
         </div>
       </header>
       <a
